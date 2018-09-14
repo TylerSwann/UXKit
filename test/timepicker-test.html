@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Time Picker test</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="../foundation.css">
+        <script src="../foundation.js"></script>
+        <link rel="stylesheet" href="../home.css">
+    </head>
+    <body>
+        <div class="layout">
+            <div class="ux-time-picker">
+                <input type="text">
+                <i class="material-icons">access_time</i>
+            </div>
+        </div>
+        <div class="ux-clock">
+            <div class="clock-header">
+                <div class="time">4:15</div>
+                <div class="time-period">
+                    <div class="pm">PM</div>
+                    <div class="am selected">AM</div>
+                </div>
+            </div>
+            <div class="clock-container">
+                <div class="clock">
+                    <div class="clock-face-item single top">
+                        <div class="clock-number selected">12</div>
+                    </div>
+                    <div class="clock-face-item double-1 top">
+                        <div class="clock-number">11</div>
+                        <div class="clock-number">1</div>
+                    </div>
+                    <div class="clock-face-item double-2 top">
+                        <div class="clock-number">10</div>
+                        <div class="clock-number">2</div>
+                    </div>
+                    <div class="clock-face-item double-3">
+                        <div class="clock-number">9</div>
+                        <div class="clock-number">3</div>
+                    </div>
+                    <div class="hand"></div>
+                    <div class="clock-face-item double-2 bottom">
+                        <div class="clock-number">8</div>
+                        <div class="clock-number">4</div>
+                    </div>
+                    <div class="clock-face-item double-1 bottom">
+                        <div class="clock-number">7</div>
+                        <div class="clock-number">5</div>
+                    </div>
+                    <div class="clock-face-item single bottom">
+                        <div class="clock-number">6</div>
+                    </div>
+                </div>
+            </div>
+            <div class="clock-controls-container">
+                <div class="ux-text-button secondary rippled small">Cancel</div>
+                <div class="ux-text-button secondary rippled small">Ok</div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+<style>
+
+
+    .ux-clock
+    {
+        /*position: absolute;*/
+        position: relative;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 470px;
+        width: 310px;
+        background-color: white;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        border-radius: 3px;
+        transform: scaleY(1);
+        transform-origin: 0 0 0;
+        opacity: 1;
+        transition: all 500ms cubic-bezier(.075,.82,.165,1);
+    }
+
+    .ux-clock .clock-header
+    {
+        background-color: #419488;
+        height: calc(15% - 20px);
+        width: calc(100% - 40px);
+        border-radius: 3px 3px 0px 0px;
+        color: white;
+        font-family: "Raleway", sans-serif;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .ux-clock .clock-header .time
+    {
+        font-size: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 60px;
+        padding-right: 10px;
+        font-weight: 500;
+        letter-spacing: 2px;
+    }
+
+    .ux-clock .clock-header .time-period
+    {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: column;
+        height: 45px;
+    }
+
+    .ux-clock .clock-header .am,
+    .ux-clock .clock-header .pm
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.5;
+        cursor: pointer;
+        transition: opacity 200ms;
+    }
+
+    .ux-clock .clock-header .am.selected,
+    .ux-clock .clock-header .pm.selected
+    {
+        opacity: 1;
+    }
+
+    .ux-clock .clock-container
+    {
+        width: 100%;
+        height: 74%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .ux-clock .clock-container .clock
+    {
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.05);
+        width: 290px;
+        height: 290px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        /*padding: 5px;*/
+        position: relative;
+    }
+
+
+    .ux-clock .clock-controls-container
+    {
+        height: 11%;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding-left: 50%;
+    }
+
+
+
+    .ux-clock .clock-controls-container .ux-text-button
+    {
+        font-weight: 600;
+    }
+
+    .ux-clock .clock-container .clock .clock-face-item
+    {
+        width: 100%;
+        height: 14%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* flex-direction: column; */
+    }
+
+    .ux-clock .clock-container .clock .clock-face-item.single
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 8%;
+    }
+
+    .ux-clock .clock-container .clock .clock-face-item.double-1
+    {
+        width: 55%;
+        height: 20%;
+    }
+
+    .ux-clock .clock-container .clock .clock-face-item.double-2
+    {
+        width: 85%;
+        height: 15%;
+    }
+
+    .ux-clock .clock-container .clock .clock-face-item.double-3
+    {
+        width: 95%;
+        height: 23%;
+    }
+
+    .ux-clock .clock-container .clock .clock-face-item.top
+    {
+        align-items: flex-start;
+    }
+    .ux-clock .clock-container .clock .clock-face-item.bottom
+    {
+        align-items: flex-end;
+    }
+
+    .ux-clock .clock-container .clock .clock-face-item.double-2.bottom
+    {
+        height: 18%;
+    }
+
+    .ux-clock .clock-container .clock .clock-face-item .clock-number
+    {
+        /*font-family: "Raleway", sans-serif;*/
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-size: 13px;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 300ms;
+        cursor: pointer;
+        user-select: none;
+    }
+    .ux-clock .clock-container .clock .clock-face-item .clock-number:hover
+    {
+        background-color: rgba(65, 148, 136, 0.4);
+    }
+
+    .ux-clock .clock-container .clock .clock-face-item .clock-number.selected
+    {
+        background-color: #419488;
+        color: white;
+    }
+
+
+    .ux-clock .clock-container .clock .hand
+    {
+        position: absolute;
+        top: 30px;
+        bottom: 50%;
+        margin: auto;
+        width: 2px;
+        background-color: #419488;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 500ms;
+        transform-origin: 100% 100% 0;
+    }
+
+
+    .ux-clock .clock-container .clock .hand::after
+    {
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background-color: #419488;
+        border-radius: 50%;
+        bottom: 0;
+        margin: auto;
+        transform: translateY(50%);
+    }
+
+    .ux-time-picker
+    {
+        font-family: "Raleway", sans-serif;
+        position: relative;
+        transition: opacity 100ms;
+    }
+    .ux-time-picker input
+    {
+        outline: 0;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        height: 30px;
+        min-width: 200px;
+        border-radius: 3px;
+        padding-left: 10px;
+        font-family: "Raleway", sans-serif;
+        font-size: 14px;
+        color: rgb(200, 200, 200);
+        transition: border-color 300ms;
+    }
+    .ux-time-picker .material-icons
+    {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 4%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgb(180, 180, 180);
+        font-size: 20px;
+        transition: color 300ms;
+    }
+
+    .ux-time-picker:hover input
+    {
+        border-color: cornflowerblue;
+    }
+
+    .ux-time-picker:hover .material-icons
+    {
+        color: cornflowerblue;
+    }
+    .ux-time-picker:active
+    {
+        opacity: 0.1;
+    }
+
+
+
+    .stack
+    {
+        position: absolute;
+        top: 100px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        min-height: 50vh;
+        align-items: center;
+    }
+    .layout
+    {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 75px;
+    }
+</style>
+
+<script>
+
+    setTimeout(() => {
+        addClockListeners();
+    }, 100);
+
+    function addClockListeners()
+    {
+        let clocks = document.getElementsByClassName("ux-clock");
+        for (let i = 0; i < clocks.length; i++)
+        {
+            let clockBody = clocks[i];
+            let clockNumbers = clockBody.querySelectorAll(".clock-number");
+            let hand = clockBody.querySelector(".hand");
+            let am = clockBody.querySelector(".am");
+            let pm = clockBody.querySelector(".pm");
+            let time = clockBody.querySelector(".time");
+            am.onclick = () => {
+                pm.classList.remove("selected");
+                am.classList.add("selected");
+            };
+            pm.onclick = () => {
+                am.classList.remove("selected");
+                pm.classList.add("selected");
+            };
+            for (let j = 0; j < clockNumbers.length; j++)
+            {
+                let clockNumber = clockNumbers[j];
+                clockNumber.onclick = () => {
+                    let number = parseInt(clockNumber.innerText);
+                    let degreeChange = _getHandDegreeChange(number);
+                    let currentSelection = clockBody.querySelector(".clock-number.selected");
+                    let currentMinute = parseInt(time.innerText.split(":")[1]);
+                    currentSelection.classList.remove("selected");
+                    hand.style.transform = `rotateZ(${degreeChange}deg)`;
+                    clockNumber.classList.add('selected');
+                    time.innerText = `${number}:${currentMinute}`;
+                };
+            }
+        }
+    }
+    function _getHandDegreeChange(hour)
+    {
+        switch (hour)
+        {
+            case 1: return 30.0;
+            case 2: return 62.0;
+            case 3: return 89.0;
+            case 4: return 120.0;
+            case 5: return 152.0;
+            case 6: return 181.0;
+            case 7: return 210.0;
+            case 8: return 242.0;
+            case 9: return 272.0;
+            case 10: return 298.0;
+            case 11: return 330.0;
+            case 12: return 360.0;
+            default: return 0.0;
+        }
+    }
+</script>

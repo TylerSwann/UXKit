@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--<link rel="stylesheet" href="../foundation.css">-->
+        <!--<script src="../foundation.js"></script>-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="../home.css">
+    </head>
+    <body>
+        <div class="stack">
+            <div class="layout">
+                <div class="ux-text-field">
+                    <input type="text">
+                </div>
+                <div class="ux-text-field">
+                    <input type="email" placeholder="Email...">
+                </div>
+                <div class="ux-text-field">
+                    <input type="number" placeholder="Zip-code..">
+                </div>
+            </div>
+            <div class="layout">
+                <div class="vbox">
+                    <div class="ux-text-field">
+                        <i class="material-icons">account_box</i>
+                        <input type="text" placeholder="Username...">
+                    </div>
+                    <div class="ux-text-field">
+                        <i class="material-icons">lock</i>
+                        <input type="password" placeholder="Password...">
+                    </div>
+                </div>
+                <div class="vbox">
+                    <div class="ux-text-field">
+                        <i class="material-icons">account_box</i>
+                        <span>
+                            <input type="text">
+                            <div class="helper">Username</div>
+                        </span>
+                    </div>
+                    <div class="ux-text-field">
+                        <i class="material-icons">lock</i>
+                        <span>
+                            <input type="password">
+                            <div class="helper">Password</div>
+                        </span>
+                    </div>
+                </div>
+                <div class="vbox">
+                    <div class="ux-text-field">
+                        <i class="material-icons">account_box</i>
+                        <input type="text" placeholder="Username...">
+                    </div>
+                    <div class="ux-text-field">
+                        <i class="material-icons">lock</i>
+                        <input type="password" placeholder="Password...">
+                        <div class="error">Invalid Username or Password!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<style>
+
+
+    .ux-text-field
+    {
+        position: relative;
+        font-family: "Raleway", sans-serif;
+        display: flex;
+        align-items: center;
+        width: min-content;
+        height: min-content;
+    }
+
+    .ux-text-field input
+    {
+        border-style: none;
+        height: 30px;
+        min-width: 200px;
+        border-radius: 3px 3px 0 0;
+        padding-left: 10px;
+        font-family: "Raleway", sans-serif;
+        font-size: 13px;
+    }
+
+    .ux-text-field input::placeholder
+    {
+        color: rgba(0, 0, 0, 0.2);
+    }
+
+
+
+    .ux-text-field input:focus
+    {
+        outline: 0;
+    }
+
+    .ux-text-field::after
+    {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        height: 2px;
+        background-color: transparent;
+        transition: background-color 200ms;
+    }
+
+    .ux-text-field::before
+    {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        height: 2px;
+        background-color: transparent;
+        transform: scaleX(0);
+        transition: background-color 200ms, transform 150ms;
+    }
+
+    .ux-text-field:hover::after
+    {
+        background-color: rgba(100, 149, 237, 0.24);
+    }
+
+    .ux-text-field:focus-within::before,
+    .ux-text-field.valid::before
+    {
+        transform: scaleX(1);
+        background-color: cornflowerblue;
+    }
+
+    .ux-text-field .material-icons
+    {
+        color: rgb(180, 180, 180);
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        transition: color 300ms;
+    }
+    .ux-text-field span
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding-bottom: 2px;
+    }
+    .ux-text-field:hover .material-icons
+    {
+        color: rgb(150, 150, 150);
+    }
+    .ux-text-field:focus-within .material-icons,
+    .ux-text-field.valid .material-icons
+    {
+        color: rgb(130, 130, 130);
+    }
+
+    .ux-text-field .error,
+    .ux-text-field .helper
+    {
+        position: absolute;
+        font-size: 14px;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        transition: all 200ms;
+    }
+
+    .ux-text-field .error
+    {
+        color: red;
+        font-size: 13px;
+        transform: translateY(100%);
+    }
+
+    .ux-text-field .helper
+    {
+        color: rgba(0, 0, 0, 0.2);
+        user-select: none;
+        pointer-events: none;
+    }
+
+    .ux-text-field:focus-within .helper,
+    .ux-text-field.valid .helper
+    {
+        transform: translate(0, -80%);
+        font-size: 12px;
+        color: cornflowerblue;
+    }
+
+
+    /***   END   ***/
+
+
+    .vbox
+    {
+        min-width: 10%;
+        min-height: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    .stack
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        min-height: 100vh;
+        padding-top: 100px;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+
+    .layout
+    {
+        display: flex;
+        /*align-items: center;*/
+        justify-content: space-around;
+        min-height: 150px;
+        padding: 10px;
+    }
+
+</style>
+
+
+<script>
+    setTimeout(() => {
+        addTextFieldListeners();
+    }, 100);
+
+    function addTextFieldListeners()
+    {
+        let textfields = document.getElementsByClassName("ux-text-field");
+        for (let i = 0; i < textfields.length; i++)
+        {
+            let textfield = textfields[i];
+            let input = textfield.querySelector("input");
+            textfield.addEventListener("change", () => {
+                if (input.value != null && input.value !== "")
+                    textfield.classList.add("valid");
+                else if (textfield.classList.contains("valid"))
+                    textfield.classList.remove("valid");
+            });
+        }
+    }
+
+</script>

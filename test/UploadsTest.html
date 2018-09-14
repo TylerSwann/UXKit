@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Uploads Test</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="../foundation.css">
+        <script src="../foundation.js"></script>
+        <link rel="stylesheet" href="../home.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="stack-container">
+                <div class="controls-group">
+                    <div class="ux-upload-box ux-uploader">
+                        <i class="material-icons">add</i>
+                        Upload
+                        <form>
+                            <input type="file" accept="image/*">
+                        </form>
+                    </div>
+                    <div class="ux-light-button ux-uploader">
+                        <i class="material-icons">cloud_upload</i>
+                        Click to Upload
+                        <form>
+                            <input type="file" accept="image/*">
+                        </form>
+                    </div>
+                    <div class="ux-browse-file">
+                        <div class="ux-text-field">
+                            <i class="material-icons">attachment</i>
+                            <input type="text" placeholder="Choose Files..." readonly>
+                        </div>
+                        <div class="ux-text-button primary rippled small">Browse</div>
+                        <form>
+                            <input type="file" accept="image/*">
+                            <input type="submit">
+                        </form>
+                    </div>
+                </div>
+
+                <div class="controls-group">
+                    <button class="ux-text-button primary rippled" id="top-trigger">
+                        Top
+                    </button>
+                    <button class="ux-text-button primary rippled" id="bottom-trigger">
+                        Bottom
+                    </button>
+                    <button class="ux-text-button primary rippled" id="left-trigger">
+                        Left
+                    </button>
+                    <button class="ux-text-button primary rippled" id="right-trigger">
+                        Right
+                    </button>
+                    <div class="ux-pop-over top" trigger="top-trigger">
+                        <div class="title">Title</div>
+                        <div class="content">
+                            This is the part where all of the<br>
+                            content goes. You can put messages, buttons,<br>
+                            and any other element you want to, and the <br>
+                            popover will display it correctly <br>
+                        </div>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="ux-pop-over bottom" trigger="bottom-trigger">
+                        <div class="title">Title</div>
+                        <div class="content">
+                            23 Unread Messages!
+                        </div>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="ux-pop-over left" trigger="left-trigger">
+                        <div class="title">Title</div>
+                        <div class="content">
+                            This button shows a popover when clicked.
+                        </div>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="ux-pop-over right" trigger="right-trigger">
+                        <div class="title">Title</div>
+                        <div class="content">
+                            You have a new notification!
+                        </div>
+                        <div class="arrow"></div>
+                    </div>
+                </div>
+
+                <div class="controls-group">
+                </div>
+
+                <div class="ux-popup-box right">
+                    <div class="content">
+                        You have a new notification!
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>
+
+
+<style>
+
+    .ux-text-field input:read-only
+    {
+        pointer-events: none;
+    }
+    .ux-browse-file
+    {
+        display: flex;
+    }
+    .ux-browse-file form
+    {
+        display: none;
+    }
+    .ux-browse-file .ux-text-field::after
+    {
+        background-color: rgba(100, 149, 237, 0.24);
+    }
+    .ux-text-button
+    {
+        font-family: "Roboto", sans-serif;
+    }
+    .ux-popup-box
+    {
+        min-width: 100px;
+        background-color: white;
+        border-radius: 4px;
+        box-shadow: 0 2px 8px rgba(0,0,0,.15);
+        font-family: "Raleway", sans-serif;
+        font-size: 14px;
+        position: absolute;
+    }
+    .ux-popup-box .content
+    {
+        padding: 20px 30px;
+    }
+
+    .ux-popup-box::after
+    {
+        content: "";
+        width: 15px;
+        height: 15px;
+        background-color: white;
+        box-shadow: 3px 3px 7px rgba(0,0,0,.07);
+        position: absolute;
+        z-index: 1;
+    }
+    .ux-popup-box.top::after
+    {
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        right: 0;
+        transform: translate(0%, 50%)rotateZ(45deg);
+        transform-origin: 50% 100% 0;
+    }
+
+    .ux-popup-box.bottom::after
+    {
+        top: 0;
+        left: 0;
+        margin: auto;
+        right: 0;
+        box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.06);
+        transform: translate(0%, -50%)rotateZ(45deg);
+        transform-origin: 50% 0 0;
+    }
+
+    .ux-popup-box.left::after
+    {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        box-shadow: -3px 3px 7px rgba(0,0,0,.07);
+        transform: translate(-50%, 0%)rotateZ(45deg);
+        transform-origin: 0 50% 0;
+    }
+
+    .ux-popup-box.right::after
+    {
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        box-shadow: 3px -3px 7px rgba(0,0,0,.07);
+        transform: translate(50%, 0%)rotateZ(45deg);
+        transform-origin: 100% 50% 0;
+    }
+
+    /*.ux-popup-box::before*/
+    /*{*/
+        /*content: "";*/
+        /*background-color: white;*/
+        /*bottom: 0;*/
+        /*left: 0;*/
+        /*right: 0;*/
+        /*width: 30px;*/
+        /*z-index: 2;*/
+        /*height: 30px;*/
+        /*position: absolute;*/
+        /*margin: auto;*/
+    /*}*/
+
+    .ux-pop-over
+    {
+        min-width: 100px;
+        background-color: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,.15);
+        border-radius: 4px;
+        font-family: "Raleway", sans-serif;
+        font-size: 14px;
+        justify-content: flex-start;
+        flex-direction: column;
+        position: absolute;
+        display: none;
+        transition: transform 300ms, opacity 250ms;
+    }
+    .ux-pop-over .arrow
+    {
+        height: 30%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        border-radius: 4px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .ux-pop-over .arrow::before
+    {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+        z-index: 2;
+        border-radius: 4px;
+    }
+    .ux-pop-over .arrow::after
+    {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        transform: translateY(50%) rotateZ(45deg);
+        box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    }
+
+    .ux-pop-over .content
+    {
+        color: rgba(0,0,0,.65);
+        padding: 10px 20px 20px;
+        display: flex;
+        align-items: center;
+        z-index: 3;
+    }
+
+    .ux-pop-over .title
+    {
+        padding: 10px 16px;
+        color: rgba(0,0,0,.85);
+        font-weight: 600;
+        border: 0 solid rgba(0, 0, 0, 0.1);
+        border-bottom-width: 1px;
+        z-index: 3;
+    }
+
+    .ux-pop-over.top
+    {
+        transform-origin: 50% 100% 0;
+    }
+    .ux-pop-over.bottom
+    {
+        transform-origin: 50% 0 0;
+    }
+    .ux-pop-over.bottom .arrow
+    {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: unset;
+    }
+    .ux-pop-over.bottom .arrow::after
+    {
+        transform: translateY(-50%) rotateZ(45deg);
+    }
+
+
+    .ux-pop-over.left
+    {
+        transform-origin: 0 50% 0;
+    }
+    .ux-pop-over.left .arrow
+    {
+        top: 0;
+        left: 0;
+        right: unset;
+        bottom: 0;
+        height: 100%;
+        width: 20%;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .ux-pop-over.left .arrow::after
+    {
+        transform: translate(-50%, 70%) rotateZ(45deg);
+    }
+
+    .ux-pop-over.right
+    {
+        transform-origin: 100% 50% 0;
+    }
+    .ux-pop-over.right .arrow
+    {
+        top: 0;
+        left: unset;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 20%;
+        align-items: center;
+    }
+    .ux-pop-over.right .arrow::after
+    {
+        transform: translate(100%, 70%) rotateZ(45deg);
+    }
+
+
+    .ux-light-button.ux-uploader form
+    {
+        display: none;
+    }
+    .ux-upload-box
+    {
+        width: 120px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-family: "Raleway", sans-serif;
+        color: #666;
+        font-size: 14px;
+        border: 1px dashed #d9d9d9;
+        border-radius: 4px;
+        background-color: #fafafa;
+        cursor: pointer;
+        transition: all 300ms;
+    }
+
+    .ux-upload-box:hover
+    {
+        border-color: rgb(0, 191, 255);
+        color: rgba(0, 191, 255, 1);
+    }
+
+    .ux-upload-box:active
+    {
+        border-color: deepskyblue;
+        color: deepskyblue;
+        opacity: 0.3;
+    }
+
+    .ux-upload-box form
+    {
+        display: none;
+    }
+
+    .ux-upload-box .material-icons
+    {
+        font-size: 30px;
+    }
+
+    /*END*/
+    .ux-light-button
+    {
+        height: 32px;
+        border: 1px solid #d9d9d9;
+        font-family: "Raleway", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 15px;
+        font-size: 14px;
+        color: rgba(0,0,0,.65);
+        border-radius: 4px;
+        user-select: none;
+        cursor: pointer;
+        transition: all .3s cubic-bezier(.645,.045,.355,1), opacity 130ms;
+    }
+    .ux-light-button .material-icons
+    {
+        margin-right: 5px;
+    }
+    .ux-light-button:hover
+    {
+        border-color: deepskyblue;
+        color: deepskyblue;
+    }
+
+    .ux-light-button:active
+    {
+        outline: 0;
+        opacity: 0.1;
+    }
+    .container
+    {
+
+        width: 100vw;
+        margin-top: 50px;
+         margin-left: unset;
+        margin-bottom: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .stack-container
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 70%;
+    }
+    .controls-group
+    {
+        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.09);
+    }
+
+</style>
+
+<script>
+    setTimeout(() => {
+        addPopOverListeners();
+        let uploaders = document.getElementsByClassName("ux-uploader");
+        let browseFiles = document.getElementsByClassName("ux-browse-file");
+        for (let i = 0; i < uploaders.length; i++)
+        {
+            let uploader = uploaders[i];
+            uploader.onclick = () => {
+                setTimeout(() => {
+                    uploader.querySelector("input[type='file']").click();
+                }, 300);
+            };
+        }
+        for (let i = 0; i < browseFiles.length; i++)
+        {
+            let browseContainer = browseFiles[i];
+            let browseButton = browseContainer.querySelector(".ux-text-button");
+            let input = browseContainer.querySelector("input[type='file']");
+            let textField = browseContainer.querySelector(".ux-text-field");
+            browseButton.onclick = () => {
+                input.click();
+            };
+            input.onchange = () => {
+                textField.innerText = input.value;
+            };
+        }
+    }, 100);
+
+    function addPopOverListeners()
+    {
+        let popovers = document.getElementsByClassName("ux-pop-over");
+        for (let i = 0; i < popovers.length; i++)
+        {
+            let popover = popovers[i];
+            if (!popover.hasAttribute("trigger"))
+                continue;
+            let trigger = document.getElementById(popover.getAttribute("trigger"));
+            popover.style.display = "flex";
+            let width = popover.getBoundingClientRect().width + 8.0;
+            let height = popover.getBoundingClientRect().height;
+            popover.close = function(){
+                popover.style.opacity = "0";
+                popover.style.transform = "scale(0)";
+            };
+            popover.style.display = "none";
+            popover.close();
+            popover.style.opacity = "0";
+            popover.style.transform = "scale(0)";
+            trigger.addEventListener("click", (e) => {
+                popover.style.display = "flex";
+                let triggerRect = trigger.getBoundingClientRect();
+                // let x = (triggerRect.left + 12.0) - (width / 2.0) + (triggerRect.width / 2.0);
+                // let y = (triggerRect.top - height) - (triggerRect.height / 2.0);
+                let x = 0.0;
+                let y = 0.0;
+                if (popover.classList.contains("top"))
+                {
+                    x = (triggerRect.left + 12.0) - (width / 2.0) + (triggerRect.width / 2.0);
+                    y = (triggerRect.top - height) - (triggerRect.height / 2.0);
+                }
+                else if (popover.classList.contains("bottom"))
+                {
+                    x = (triggerRect.left + 12.0) - (width / 2.0) + (triggerRect.width / 2.0);
+                    y = (triggerRect.top + height) - (triggerRect.height);
+                }
+                else if (popover.classList.contains("left"))
+                {
+                    x = triggerRect.left + triggerRect.width;
+                    y = triggerRect.top  + triggerRect.height - height;
+                }
+                else if (popover.classList.contains("right"))
+                {
+                    x = (triggerRect.left) - width;
+                    y = triggerRect.top  + triggerRect.height + 9.0 - height;
+                }
+                popover.style.top = y + "px";
+                popover.style.left = x + "px";
+                popover.style.opacity = "1";
+                popover.style.transform = "scale(1)";
+            });
+        }
+        window.addEventListener("mousedown", () => {
+            for (let i = 0; i < popovers.length; i++)
+                popovers[i].close();
+        });
+    }
+</script>

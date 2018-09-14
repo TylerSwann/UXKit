@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Dialogs</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css">
+        <link rel="stylesheet" href="../src/foundation.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        <script src="../src/foundation.js"></script>
+        <link rel="stylesheet" href="home.css">
+    </head>
+    <body>
+        <div class="app-bar">
+            <a href="home.html" class="title-header">UX Kit</a>
+        </div>
+
+        <!-- DRAWER -->
+        <div class="ux-drawer static">
+            <div class="ux-drawer-items">
+                <a href="home.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">home</i>
+                    Home
+                </a>
+                <a href="getting-started.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">star</i>
+                    Getting Started
+                </a>
+
+                <div class="rippled ux-drawer-item">
+                    <i class="material-icons">info</i>
+                    About
+                </div>
+
+                <div class="ux-expansion-pane open">
+                    <div class="ux-expansion-control">
+                        Components
+                        <i class="material-icons">keyboard_arrow_down</i>
+                    </div>
+                    <div class="ux-expansion-content">
+                        <div>
+                            <a class="rippled" href="buttons-demo.html">
+                                Buttons
+                            </a>
+                            <a class="rippled" href="forms-demo.html">
+                                Forms
+                            </a>
+                            <a class="rippled" href="popover-demo.html">
+                                Popovers
+                            </a>
+                            <a class="rippled" href="dialog-demo.html">
+                                Dialogs
+                            </a>
+                            <a class="rippled" href="alerts-demo.html">
+                                Alerts
+                            </a>
+                            <a class="rippled" href="drawers-demo.html">
+                                Drawers
+                            </a>
+                            <a class="rippled" href="uploads-demo.html">
+                                Uploads
+                            </a>
+                            <a class="rippled" href="progress-demo.html">
+                                Progress
+                            </a>
+                            <a class="rippled" href="tabs-demo.html">
+                                Tabs
+                            </a>
+                            <a class="rippled" href="expansion-panel-demo.html">
+                                Expansion Panes
+                            </a>
+                            <a class="rippled" href="snackbar-demo.html">
+                                Snack Bars
+                            </a>
+                            <a class="rippled" href="tooltips-demo.html">
+                                Tooltips
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="stack-container">
+                <div class="header">Dialogs</div>
+
+
+                <!--SIMPLE DIALOGS-->
+                <div class="sub-header">Simple Dialog</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Markup" delay="1300" id="simple-markup-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View JavaScript" delay="1300" id="simple-js-source">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <button class="ux-text-button rippled primary" onclick="showSimpleDialog()">
+                        Open Simple Dialog
+                    </button>
+                </div>
+                <div class="dialog" trigger="simple-js">
+                    <div class="dialog-title">Use Google's location service?</div>
+                    <div class="dialog-message">
+                        Let Google help apps determine location.
+                        This means sending anonymous location data to Google,
+                        even when no apps are running.
+                    </div>
+                    <div class="dialog-controls">
+                        <div class="ux-text-button rippled primary small">Disagree</div>
+                        <div class="ux-text-button rippled primary small">Agree</div>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="simple-js-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-javascript code-preview">
+                                <xmp>
+
+    let dialogConfig = {
+        title: "Use Google's location service?",
+        message: "Let Google help apps determine location. " +
+            "This means sending anonymous location data to Google, " +
+            "even when no apps are running.",
+        buttons: [
+            button = {
+                title: "Disagree",
+                onclick: () => {console.log("Disagree");}
+            },
+            button = {
+                title: "Agree",
+                onclick: () => {console.log("Agree");}
+            }
+        ]
+    };
+    createDialog(dialogConfig).show();
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="simple-markup-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-javascript code-preview">
+                                <xmp>
+<div class="dialog" trigger="simple-js">
+    <div class="dialog-title">Use Google's location service?</div>
+    <div class="dialog-message">
+        Let Google help apps determine location.
+        This means sending anonymous location data to Google,
+        even when no apps are running.
+    </div>
+    <div class="dialog-controls">
+        <div class="ux-text-button rippled primary small">Disagree</div>
+        <div class="ux-text-button rippled primary small">Agree</div>
+    </div>
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+                <!--INPUT DIALOGS-->
+                <div class="sub-header">Input Dialog</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Markup" delay="1300" id="input-markup-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View JavaScript" delay="1300" id="input-js-source">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <button class="ux-text-button rippled primary" id="input-dialog">
+                        Open Input Dialog
+                    </button>
+                </div>
+                <div class="dialog" trigger="input-dialog">
+                    <div class="dialog-title">Subscribe</div>
+                    <div class="dialog-message">
+                        To subscribe to this website, please enter your email address here.
+                        We will send updates occasionally.
+                    </div>
+                    <div class="ux-text-field">
+                        <i class="material-icons">email</i>
+                        <input type="text" placeholder="Email...">
+                    </div>
+                    <div class="dialog-controls">
+                        <div class="ux-text-button rippled primary small">Cancel</div>
+                        <div class="ux-text-button rippled primary small">Subscribe</div>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="input-js-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-javascript code-preview">
+                                <xmp>
+
+            TODO
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="input-markup-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-javascript code-preview">
+                                <xmp>
+<div class="dialog" trigger="input-dialog">
+    <div class="dialog-title">Subscribe</div>
+    <div class="dialog-message">
+        To subscribe to this website, please enter your email address here.
+        We will send updates occasionally.
+    </div>
+    <div class="ux-text-field">
+        <i class="material-icons">email</i>
+        <input type="text" placeholder="Email...">
+    </div>
+    <div class="dialog-controls">
+        <div class="ux-text-button rippled primary small">Cancel</div>
+        <div class="ux-text-button rippled primary small">Subscribe</div>
+    </div>
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </body>
+</html>
+
+<style>
+    .code-preview-expansion span
+    {
+        max-width: 100%;
+    }
+
+</style>
+<script>
+    function showSimpleDialog()
+    {
+        let dialogConfig = {
+            title: "Use Google's location service?",
+            message: "Let Google help apps determine location. " +
+            "This means sending anonymous location data to Google, " +
+            "even when no apps are running.",
+            buttons: [
+                button = {
+                    title: "Disagree",
+                    onclick: () => {console.log("Disagree");}
+                },
+                button = {
+                    title: "Agree",
+                    onclick: () => {console.log("Agree");}
+                }
+            ]
+        };
+        createDialog(dialogConfig).show();
+    }
+</script>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Demo Template</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css">
+        <link rel="stylesheet" href="../src/foundation.css">
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        <script src="../src/foundation.js"></script>
+        <link rel="stylesheet" href="home.css">
+    </head>
+    <body>
+        <div class="app-bar">
+            <a href="home.html" class="title-header">UX Kit</a>
+        </div>
+
+        <!-- DRAWER -->
+        <div class="ux-drawer static">
+            <div class="ux-drawer-items">
+                <a href="home.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">home</i>
+                    Home
+                </a>
+                <a href="getting-started.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">star</i>
+                    Getting Started
+                </a>
+
+                <div class="rippled ux-drawer-item">
+                    <i class="material-icons">info</i>
+                    About
+                </div>
+
+                <div class="ux-expansion-pane open">
+                    <div class="ux-expansion-control">
+                        Components
+                        <i class="material-icons">keyboard_arrow_down</i>
+                    </div>
+                    <div class="ux-expansion-content">
+                        <div>
+                            <a class="rippled" href="buttons-demo.html">
+                                Buttons
+                            </a>
+                            <a class="rippled" href="forms-demo.html">
+                                Forms
+                            </a>
+                            <a class="rippled" href="popover-demo.html">
+                                Popovers
+                            </a>
+                            <a class="rippled" href="dialog-demo.html">
+                                Dialogs
+                            </a>
+                            <a class="rippled" href="alerts-demo.html">
+                                Alerts
+                            </a>
+                            <a class="rippled" href="drawers-demo.html">
+                                Drawers
+                            </a>
+                            <a class="rippled" href="uploads-demo.html">
+                                Uploads
+                            </a>
+                            <a class="rippled" href="progress-demo.html">
+                                Progress
+                            </a>
+                            <a class="rippled" href="tabs-demo.html">
+                                Tabs
+                            </a>
+                            <a class="rippled" href="expansion-panel-demo.html">
+                                Expansion Panes
+                            </a>
+                            <a class="rippled" href="snackbar-demo.html">
+                                Snack Bars
+                            </a>
+                            <a class="rippled" href="tooltips-demo.html">
+                                Tooltips
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="stack-container">
+                <div class="header">Forms</div>
+
+                <!--FORM ITEM-->
+                <div class="sub-header">Switches</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="switch-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="vbox">
+                        <span class="ux-switch"></span>
+                        <div class="display">UnChecked</div>
+                    </div>
+                    <div class="vbox">
+                        <span class="ux-switch checked"></span>
+                        <div class="display">Checked</div>
+                    </div>
+                    <div class="vbox">
+                        <span class="ux-switch disabled"></span>
+                        <div class="display">UnChecked Disabled</div>
+                    </div>
+                    <div class="vbox">
+                        <span class="ux-switch checked disabled"></span>
+                        <div class="display">Checked Disabled</div>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="switch-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<div class="vbox">
+    <span class="ux-switch"></span>
+    <div class="display">UnChecked</div>
+</div>
+<div class="vbox">
+    <span class="ux-switch checked"></span>
+    <div class="display">Checked</div>
+</div>
+<div class="vbox">
+    <span class="ux-switch disabled"></span>
+    <div class="display">UnChecked Disabled</div>
+</div>
+<div class="vbox">
+    <span class="ux-switch checked disabled"></span>
+    <div class="display">Checked Disabled</div>
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+                <!--FORM ITEM-->
+                <div class="sub-header">Textfields</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="textfield-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="vbox">
+                        <div class="ux-text-field">
+                            <i class="material-icons">account_box</i>
+                            <input type="text" placeholder="Username...">
+                        </div>
+                        <div class="ux-text-field">
+                            <i class="material-icons">lock</i>
+                            <input type="password" placeholder="Password...">
+                        </div>
+                    </div>
+                    <div class="vbox">
+                        <div class="ux-text-field">
+                            <i class="material-icons">account_box</i>
+                            <span>
+                                <input type="text">
+                                <div class="helper">Username</div>
+                            </span>
+                        </div>
+                        <div class="ux-text-field">
+                            <i class="material-icons">lock</i>
+                            <span>
+                                <input type="password">
+                                <div class="helper">Password</div>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="vbox">
+                        <div class="ux-text-field">
+                            <i class="material-icons">account_box</i>
+                            <input type="text" placeholder="Username...">
+                        </div>
+                        <div class="ux-text-field">
+                            <i class="material-icons">lock</i>
+                            <input type="password" placeholder="Password...">
+                            <div class="error">Invalid Username or Password!</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="textfield-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<div class="ux-text-field">
+    <i class="material-icons">account_box</i>
+    <span>
+        <input type="text">
+        <div class="helper">Username</div>
+    </span>
+</div>
+<div class="ux-text-field">
+    <i class="material-icons">account_box</i>
+    <input type="text" placeholder="Username...">
+</div>
+<div class="ux-text-field">
+    <i class="material-icons">lock</i>
+    <input type="password" placeholder="Password...">
+    <div class="error">Invalid Username or Password!</div>
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+                <!--FORM ITEM-->
+                <div class="sub-header">Drop Down Menus</div>
+                <div class="ux-alert success large">
+                    <i class="material-icons close-button">close</i>
+                    <div class="title">NOTE:</div>
+                    Drop down menus require an attribute called 'trigger'. A trigger is
+                    the id of the parent element that when clicked, shows the dropdown menu.
+                </div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="dropdown-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="vbox">
+                        <button class="ux-icon-button rippled" id="bottom-right-dropdown">
+                            <i class="material-icons">arrow_downward</i>
+                        </button>
+                        <div class="display">Bottom Right</div>
+                    </div>
+                    <div class="vbox">
+                        <button class="ux-icon-button rippled" id="bottom-left-dropdown">
+                            <i class="material-icons">arrow_downward</i>
+                        </button>
+                        <div class="display">Bottom Left</div>
+                    </div>
+                    <div class="vbox">
+                        <button class="ux-icon-button rippled" id="top-right-dropdown">
+                            <i class="material-icons">arrow_downward</i>
+                        </button>
+                        <div class="display">Top Right</div>
+                    </div>
+                    <div class="vbox">
+                        <button class="ux-icon-button rippled" id="top-left-dropdown">
+                            <i class="material-icons">arrow_downward</i>
+                        </button>
+                        <div class="display">Top Left</div>
+                    </div>
+                    <div class="ux-dropdown-menu bottom-right" trigger="bottom-right-dropdown"">
+                    <div class="ux-dropdown-item rippled">January</div>
+                    <div class="ux-dropdown-item rippled">Feburary</div>
+                    <div class="ux-dropdown-item rippled">March</div>
+                    <div class="ux-dropdown-item rippled">April</div>
+                    <div class="ux-dropdown-item rippled">May</div>
+                    <div class="ux-dropdown-item rippled">June</div>
+                </div>
+                <div class="ux-dropdown-menu bottom-left" trigger="bottom-left-dropdown">
+                    <div class="ux-dropdown-item rippled">Audi</div>
+                    <div class="ux-dropdown-item rippled">Jaguar</div>
+                    <div class="ux-dropdown-item rippled">Lamborghini</div>
+                    <div class="ux-dropdown-item rippled">Ferrari</div>
+                    <div class="ux-dropdown-item rippled">BMW</div>
+                    <div class="ux-dropdown-item rippled">Honda</div>
+                </div>
+
+                <div class="ux-dropdown-menu top-right" trigger="top-right-dropdown">
+                    <div class="ux-dropdown-item rippled">
+                        Account
+                        <i class="material-icons">account_box</i>
+                    </div>
+                    <div class="ux-dropdown-item rippled">
+                        Settings
+                        <i class="material-icons">settings</i>
+                    </div>
+                    <div class="ux-dropdown-item rippled">
+                        Help
+                        <i class="material-icons">help</i>
+                    </div>
+                    <div class="ux-dropdown-item rippled">
+                        Sign Out
+                        <i class="material-icons">power_settings_new</i>
+                    </div>
+                </div>
+                <div class="ux-dropdown-menu top-left" trigger="top-left-dropdown">
+                    <div class="ux-dropdown-item rippled">
+                        Account
+                        <i class="material-icons">account_box</i>
+                    </div>
+                    <div class="ux-dropdown-item rippled">
+                        Settings
+                        <i class="material-icons">settings</i>
+                    </div>
+                    <div class="ux-dropdown-item rippled">
+                        Help
+                        <i class="material-icons">help</i>
+                    </div>
+                    <div class="ux-dropdown-item rippled">
+                        Sign Out
+                        <i class="material-icons">power_settings_new</i>
+                    </div>
+                </div>
+            </div>
+            <div class="ux-expansion-pane code-preview-expansion" trigger="dropdown-source">
+                <div class="ux-expansion-content">
+                    <span>
+                        <pre class="prettyprint lang-html code-preview">
+                            <xmp>
+<button class="ux-icon-button rippled" id="bottom-right-dropdown">
+    <i class="material-icons">arrow_downward</i>
+</button>
+</div>
+    <div class="ux-dropdown-menu bottom-right" trigger="bottom-right-dropdown">
+    <div class="ux-dropdown-item rippled">January</div>
+    <div class="ux-dropdown-item rippled">Feburary</div>
+    <div class="ux-dropdown-item rippled">March</div>
+    <div class="ux-dropdown-item rippled">April</div>
+    <div class="ux-dropdown-item rippled">May</div>
+    <div class="ux-dropdown-item rippled">June</div>
+</div>
+                            </xmp>
+                        </pre>
+                    </span>
+        </div>
+
+
+                <!--FORM ITEM-->
+                <div class="sub-header">Select Menus</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="select-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="ux-select">
+                        <select>
+                            <option>Audi</option>
+                            <option>Jaguar</option>
+                            <option>Mercedes Benz</option>
+                            <option>BMW</option>
+                            <option>Lamborghini</option>
+                            <option>Ferrari</option>
+                            <option>Honda</option>
+                            <option>Toyota</option>
+                        </select>
+                    </div>
+                    <div class="ux-select">
+                        <label>Select Month</label>
+                        <select>
+                            <option>January</option>
+                            <option>February</option>
+                            <option>March</option>
+                            <option>April</option>
+                            <option>May</option>
+                            <option>June</option>
+                            <option>July</option>
+                            <option>August</option>
+                            <option>September</option>
+                            <option>October</option>
+                            <option>November</option>
+                            <option>December</option>
+                        </select>
+                    </div>
+
+                    <div class="ux-select">
+                        <select>
+                            <option>Monday</option>
+                            <option>Tuesday</option>
+                            <option>Wednesday</option>
+                            <option>Thursday</option>
+                            <option>Friday</option>
+                            <option>Saturday</option>
+                            <option>Sunday</option>
+                        </select>
+                    </div>
+
+                    <div class="ux-select">
+                        <select>
+                            <option>One</option>
+                            <option>Two</option>
+                            <option>Three</option>
+                            <option>Four</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="select-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<div class="ux-select">
+    <select>
+        <option>Audi</option>
+        <option>Jaguar</option>
+        <option>Mercedes Benz</option>
+        <option>BMW</option>
+        <option>Lamborghini</option>
+        <option>Ferrari</option>
+        <option>Honda</option>
+        <option>Toyota</option>
+    </select>
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+
+                <!--FORM ITEM-->
+                <div class="sub-header">CheckBoxes</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="check-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="ux-check-box">
+                        <input type="checkbox" checked>
+                        <span>Default</span>
+                    </div>
+                    <div class="ux-check-box primary">
+                        <input type="checkbox" checked>
+                        <span>Primary</span>
+                    </div>
+                    <div class="ux-check-box secondary">
+                        <input type="checkbox" checked>
+                        <span>Secondary</span>
+                    </div>
+                    <div class="ux-check-box disabled">
+                        <input type="checkbox" checked>
+                        <span>Disabled</span>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="check-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<div class="ux-check-box">
+    <input type="checkbox" checked>
+    <span>Default</span>
+</div>
+<div class="ux-check-box primary">
+    <input type="checkbox" checked>
+    <span>Primary</span>
+</div>
+<div class="ux-check-box secondary">
+    <input type="checkbox" checked>
+    <span>Secondary</span>
+</div>
+<div class="ux-check-box disabled">
+    <input type="checkbox" checked>
+    <span>Disabled</span>
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+
+    </body>
+</html>
+<style>
+
+    .display
+    {
+        margin-top: 15px;
+    }
+
+    .ux-select select
+    {
+        background-color: transparent;
+    }
+
+    .ux-text-field
+    {
+        margin-bottom: 30px;
+    }
+
+    .ux-text-field input
+    {
+        background-color: transparent;
+    }
+</style>
+
+<script>
+    setTimeout(() => {
+        let closeButtons = document.getElementsByClassName("close-button");
+        for (let i = 0; i < closeButtons.length; i++)
+        {
+            let close = closeButtons[i];
+            close.onclick = () => {
+                close.parentElement.style.transform = "translateY(-100%)";
+                // close.parentElement.style.transform = "scale(0, 0)";
+                close.parentElement.style.opacity = "0";
+                setTimeout(() => {
+                    close.parentElement.style.display = "none";
+                    // close.parentElement.style.display = "none";
+                    // close.parentElement.style.transform = "scale(0, 0)";
+                }, 400);
+            };
+        }
+    }, 200);
+</script>

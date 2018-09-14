@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Demo Template</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css">
+        <link rel="stylesheet" href="../src/foundation.css">
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        <script src="../src/foundation.js"></script>
+        <link rel="stylesheet" href="home.css">
+    </head>
+    <body>
+        <div class="app-bar">
+            <a href="home.html" class="title-header">UX Kit</a>
+        </div>
+
+        <!-- DRAWER -->
+        <div class="ux-drawer static">
+            <div class="ux-drawer-items">
+                <a href="home.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">home</i>
+                    Home
+                </a>
+                <a href="getting-started.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">star</i>
+                    Getting Started
+                </a>
+
+                <div class="rippled ux-drawer-item">
+                    <i class="material-icons">info</i>
+                    About
+                </div>
+
+                <div class="ux-expansion-pane open">
+                    <div class="ux-expansion-control">
+                        Components
+                        <i class="material-icons">keyboard_arrow_down</i>
+                    </div>
+                    <div class="ux-expansion-content">
+                        <div>
+                            <a class="rippled" href="buttons-demo.html">
+                                Buttons
+                            </a>
+                            <a class="rippled" href="forms-demo.html">
+                                Forms
+                            </a>
+                            <a class="rippled" href="popover-demo.html">
+                                Popovers
+                            </a>
+                            <a class="rippled" href="dialog-demo.html">
+                                Dialogs
+                            </a>
+                            <a class="rippled" href="alerts-demo.html">
+                                Alerts
+                            </a>
+                            <a class="rippled" href="drawers-demo.html">
+                                Drawers
+                            </a>
+                            <a class="rippled" href="uploads-demo.html">
+                                Uploads
+                            </a>
+                            <a class="rippled" href="progress-demo.html">
+                                Progress
+                            </a>
+                            <a class="rippled" href="tabs-demo.html">
+                                Tabs
+                            </a>
+                            <a class="rippled" href="expansion-panel-demo.html">
+                                Expansion Panes
+                            </a>
+                            <a class="rippled" href="snackbar-demo.html">
+                                Snack Bars
+                            </a>
+                            <a class="rippled" href="tooltips-demo.html">
+                                Tooltips
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="stack-container">
+                <div class="header">Expansion Panes</div>
+
+                <!--SINGLE EXPANSION-->
+                <div class="sub-header">Single Expansion Pane</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="single-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="ux-expansion-group">
+                        <div class="ux-expansion-pane">
+                            <div class="ux-expansion-control">
+                                Mail
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </div>
+                            <div class="ux-expansion-content">
+                                <div>
+                                    <div class="rippled">
+                                        <i class="material-icons">home</i>
+                                        Home
+                                    </div>
+                                    <div class="rippled">
+                                        <i class="material-icons">star</i>
+                                        Features
+                                    </div>
+                                    <div class="rippled">
+                                        <i class="material-icons">store_mall_directory</i>
+                                        Marketplace
+                                    </div>
+                                    <div class="rippled">
+                                        <i class="material-icons">chrome_reader_mode</i>
+                                        Documentation
+                                    </div>
+                                    <div class="rippled">
+                                        <i class="material-icons">info</i>
+                                        About
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion large-content" trigger="single-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<div class="ux-expansion-group">
+    <div class="ux-expansion-pane">
+        <div class="ux-expansion-control">
+            Mail
+            <i class="material-icons">keyboard_arrow_down</i>
+        </div>
+        <div class="ux-expansion-content">
+            <div>
+                <div class="rippled">
+                    <i class="material-icons">home</i>
+                    Home
+                </div>
+                <div class="rippled">
+                    <i class="material-icons">star</i>
+                    Features
+                </div>
+                <div class="rippled">
+                    <i class="material-icons">store_mall_directory</i>
+                    Marketplace
+                </div>
+                <div class="rippled">
+                    <i class="material-icons">chrome_reader_mode</i>
+                    Documentation
+                </div>
+                <div class="rippled">
+                    <i class="material-icons">info</i>
+                    About
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+                <!--BUTTON EXPANSION TYPE-->
+                <div class="sub-header">Button Expansion Pane</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="button-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="ux-expansion-group">
+                        <div class="ux-expansion-pane">
+                            <div class="ux-expansion-control">
+                                Mail
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </div>
+                            <div class="ux-expansion-content">
+                                <div>
+                                    <div class="rippled">
+                                        <i class="material-icons">home</i>
+                                        Home
+                                    </div>
+                                    <div class="rippled">
+                                        <i class="material-icons">star</i>
+                                        Features
+                                    </div>
+                                    <div class="rippled">
+                                        <i class="material-icons">store_mall_directory</i>
+                                        Marketplace
+                                    </div>
+                                    <div class="rippled">
+                                        <i class="material-icons">chrome_reader_mode</i>
+                                        Documentation
+                                    </div>
+                                    <div class="rippled">
+                                        <i class="material-icons">info</i>
+                                        About
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion large-content" trigger="button-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<div class="ux-expansion-group">
+    <div class="ux-expansion-pane">
+        <div class="ux-expansion-control">
+            Mail
+            <i class="material-icons">keyboard_arrow_down</i>
+        </div>
+        <div class="ux-expansion-content">
+            <div>
+                <div class="rippled">
+                    <i class="material-icons">home</i>
+                    Home
+                </div>
+                <div class="rippled">
+                    <i class="material-icons">star</i>
+                    Features
+                </div>
+                <div class="rippled">
+                    <i class="material-icons">store_mall_directory</i>
+                    Marketplace
+                </div>
+                <div class="rippled">
+                    <i class="material-icons">chrome_reader_mode</i>
+                    Documentation
+                </div>
+                <div class="rippled">
+                    <i class="material-icons">info</i>
+                    About
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+                <!--GROUP EXPANSION-->
+                <div class="sub-header">Single Expansion Pane</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="group-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="ux-expansion-group">
+                        <div class="ux-expansion-pane">
+                            <div class="ux-expansion-control">
+                                Smart Lock
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </div>
+                            <div class="ux-expansion-content">
+                                <span>
+                                    Keep your phone unlocked when it's in a trusted
+                                    location or detects a trusted device nearby.
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="ux-expansion-pane">
+                            <div class="ux-expansion-control">
+                                Google Payments
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </div>
+                            <div class="ux-expansion-content">
+                                <span>
+                                    The Google payments center is a single location where you can manage the ways you pay
+                                    for (or get paid through) Google products and services. You can use the payment information
+                                    stored in the payment center to pay for other Google products,
+                                    like Play digital content, Drive storage space, or hardware on Google Store.
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="ux-expansion-pane">
+                            <div class="ux-expansion-control">
+                                Personal Info
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </div>
+                            <div class="ux-expansion-content">
+                                <span>
+                                    Manage this basic information — your name, email, and phone number — to help others find you on
+                                    Google products like Hangouts,
+                                    Gmail, and Maps, and make it easier to get in touch.
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="ux-expansion-pane">
+                            <div class="ux-expansion-control">
+                                Account Preferences
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </div>
+                            <div class="ux-expansion-content">
+                                <span>
+                                    See or change your Google Account's preferences,
+                                    like your language and Google Drive storage. You can also delete individual Google services.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion large-content" trigger="group-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<div class="ux-expansion-group">
+        <div class="ux-expansion-pane">
+            <div class="ux-expansion-control">
+                Smart Lock
+                <i class="material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="ux-expansion-content">
+                <span>
+                    Keep your phone unlocked when it's in a trusted
+                    location or detects a trusted device nearby.
+                </span>
+            </div>
+        </div>
+
+        <div class="ux-expansion-pane">
+            <div class="ux-expansion-control">
+                Google Payments
+                <i class="material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="ux-expansion-content">
+                <span>
+                    The Google payments center is a single location
+                    where you can manage the ways you pay
+                    for (or get paid through) Google products and services.
+                    You can use the payment information
+                    stored in the payment center to pay for other Google products,
+                    like Play digital content, Drive storage space,
+                    or hardware on Google Store.
+                </span>
+            </div>
+        </div>
+
+        <div class="ux-expansion-pane">
+            <div class="ux-expansion-control">
+                Personal Info
+                <i class="material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="ux-expansion-content">
+                <span>
+                    Manage this basic information — your name,
+                    email, and phone number — to help others find you on
+                    Google products like Hangouts,
+                    Gmail, and Maps, and make it easier to get in touch.
+                </span>
+            </div>
+        </div>
+
+        <div class="ux-expansion-pane">
+            <div class="ux-expansion-control">
+                Account Preferences
+                <i class="material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="ux-expansion-content">
+                <span>
+                    See or change your Google Account's preferences,
+                    like your language and Google Drive storage.
+                    You can also delete individual Google services.
+                </span>
+            </div>
+        </div>
+    </div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+                <!--EXPANSION TYPE-->
+                <div class="sub-header">Expansion Pane with Trigger</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="trigger-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <button class="ux-icon-button rippled" id="info-trigger">
+                        <i class="material-icons">info</i>
+                    </button>
+                </div>
+                <div class="ux-expansion-pane" trigger="info-trigger" id="trigger-expansion-pane">
+                    <div class="ux-expansion-content">
+                        <span>
+                            These are the basic settings. More than likely the setting you
+                            are looking to change is located here.
+                        </span>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="trigger-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<button class="ux-icon-button rippled" id="info-trigger">
+    <i class="material-icons">info</i>
+</button>
+<div class="ux-expansion-pane" trigger="info-trigger" id="trigger-expansion-pane">
+    <div class="ux-expansion-content">
+        <span>
+            These are the basic settings. More than likely the setting you
+            are looking to change is located here.
+        </span>
+    </div>
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+                <!--EXPANSION TYPE-->
+                <div class="sub-header">Expansion Pane with Helper Text</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="helper-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="ux-expansion-group">
+                        <div class="ux-expansion-pane">
+                            <div class="ux-expansion-control">
+                                Connections
+                                <span>WI-FI, Data usage, Airplane mode...</span>
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </div>
+                            <div class="ux-expansion-content">
+                                <span>
+                                    These are the basic settings. More than likely the setting you
+                                    are looking to change is located here.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="helper-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<div class="ux-expansion-group">
+    <div class="ux-expansion-pane">
+        <div class="ux-expansion-control">
+            Connections
+            <span>WI-FI, Data usage, Airplane mode...</span>
+            <i class="material-icons">keyboard_arrow_down</i>
+        </div>
+        <div class="ux-expansion-content">
+            <span>
+                These are the basic settings. More than likely the setting you
+                are looking to change is located here.
+            </span>
+        </div>
+    </div>
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </body>
+</html>
+
+<style>
+    .code-preview-expansion.large-content .ux-expansion-content
+    {
+        max-height: 500px;
+    }
+    #trigger-expansion-pane
+    {
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0 0 5px 5px;
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+    #trigger-expansion-pane .ux-expansion-content
+    {
+        background-color: transparent;
+    }
+</style>

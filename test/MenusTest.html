@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Menus</title>
+        <link rel="stylesheet" href="../foundation.css">
+        <script src="../foundation.js"></script>
+        <link rel="stylesheet" href="../home.css">
+    </head>
+    <body>
+        <div class="ux-menu">
+            <div class="section">
+                <div class="title">
+                    <i class="material-icons">email</i>
+                    Navigation One
+                </div>
+                <div class="option">Option One</div>
+                <div class="option">Option Two</div>
+                <div class="option">Option Three</div>
+                <div class="option">Option Four</div>
+            </div>
+            <div class="section">
+                <div class="title">
+                    <i class="material-icons">favorite</i>
+                    Navigation Two
+                </div>
+                <div class="option">Option One</div>
+                <div class="option">Option Two</div>
+            </div>
+            <div class="section">
+                <div class="title">Navigation Three</div>
+                <div class="option">Option One</div>
+                <div class="option">Option Two</div>
+                <div class="option">Option Three</div>
+                <div class="option">Option Four</div>
+                <div class="option">Option Five</div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<style>
+
+    .ux-menu
+    {
+        width: 250px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        border-right: 1px solid #e8e8e8;
+        padding-left: 20px;
+        font-family: "Raleway", sans-serif;
+    }
+
+
+    .ux-menu .section .title
+    {
+        color: rgba(0,0,0,.45);
+        font-size: 15px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+    }
+
+    .ux-menu .section .title .material-icons
+    {
+        font-size: inherit;
+        margin-right: 10px;
+    }
+
+    .ux-menu .section .option
+    {
+        color: rgba(0,0,0,.65);
+        font-size: 15px;
+        height: 40px;
+        text-indent: 40px;
+        cursor: pointer;
+        transition: color .3s cubic-bezier(.645,.045,.355,1),border-color .3s cubic-bezier(.645,.045,.355,1),background .3s cubic-bezier(.645,.045,.355,1),padding .15s cubic-bezier(.645,.045,.355,1);
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .ux-menu .section .option:hover
+    {
+        color: #1890ff;
+    }
+
+    .ux-menu .section .option::after
+    {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 2px;
+        background-color: #1890ff;
+        transform: scaleY(0);
+        transition: all 150ms;
+        opacity: 0;
+    }
+
+    .ux-menu .section .option.active
+    {
+        background-color: #e6f7ff;
+        color: #1890ff;
+    }
+
+    .ux-menu .section .option.active::after
+    {
+        /*content: "";*/
+        /*position: absolute;*/
+        /*top: 0;*/
+        /*bottom: 0;*/
+        /*right: 0;*/
+        /*width: 2px;*/
+        /*background-color: #1890ff;*/
+        /*transform: scaleY(0);*/
+        /*transition: transform 1s;*/
+        opacity: 1;
+        transform: scaleY(1);
+    }
+
+    /**END**/
+
+    .stack
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .layout
+    {
+        min-height: 100px;
+        width: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+</style>
+
+
+<script>
+    setTimeout(() => {
+        addMenuListener();
+    }, 100);
+
+    function addMenuListener()
+    {
+        let menus = document.getElementsByClassName("ux-menu");
+        for (let i = 0; i < menus.length; i++)
+        {
+            let menu = menus[i];
+            menu.addEventListener("click", (event) => {
+                if (event.srcElement.classList.contains("option"))
+                {
+                    let currentActiveOption = menu.querySelector(".active");
+                    if (currentActiveOption != null)
+                        currentActiveOption.classList.remove("active");
+                    event.srcElement.classList.add("active");
+                }
+            });
+        }
+    }
+</script>
+
+
+
+

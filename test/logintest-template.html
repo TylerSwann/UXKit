@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../foundation.css">
+        <script src="../foundation.js"></script>
+    </head>
+    <body>
+        <div class="login-container">
+            <div class="login-header">
+                <div class="login-message">Sign In</div>
+            </div>
+            <div class="fields-container">
+                <div class="ux-text-field">
+                    <i class="material-icons">account_box</i>
+                    <input type="text">
+                    <div class="helper">Username</div>
+                </div>
+                <div class="ux-text-field">
+                    <i class="material-icons">lock</i>
+                    <input type="password">
+                    <div class="helper">Password</div>
+                </div>
+            </div>
+            <div class="button-container">
+                <button class="ux-raised-button rippled primary">Login</button>
+                <button class="ux-text-button rippled">Forgot password?</button>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+<style>
+
+    .login-container
+    {
+        position: absolute;
+        top: 20px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 400px;
+        height: 500px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        box-shadow: 0 5px 18px 0 rgba(0, 0, 0, 0.15), 0 5px 30px 0 rgba(0, 0, 0, 0.05);
+        background-color: white;
+    }
+
+    .login-header
+    {
+        /*position: absolute;*/
+        /*top: 0;*/
+        /*left: 0;*/
+        /*right: 0;*/
+        height: 13%;
+        background-color: cornflowerblue;
+        border-radius: 5px 5px 0 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .button-container
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 20%;
+        padding: 5% 0;
+    }
+
+    .fields-container
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 30%;
+        padding-top: 10%;
+    }
+
+    /*.field-container*/
+    /*{*/
+        /*display: flex;*/
+        /*align-items: center;*/
+        /*justify-content: space-around;*/
+        /*flex-direction: column;*/
+        /*min-height: 50%;*/
+        /*margin-bottom: 10%;*/
+    /*}*/
+    /*.button-container*/
+    /*{*/
+        /*display: flex;*/
+        /*align-items: center;*/
+        /*justify-content: space-around;*/
+        /*flex-direction: column;*/
+        /*color: white;*/
+         /*min-height: 20%;*/
+    /*}*/
+
+    .login-message
+    {
+        font-family: "Raleway", sans-serif;
+        width: 75%;
+        font-size: 30px;
+        font-weight: 100;
+        color: white;
+        padding-left: 20px;
+    }
+
+    .ux-text-field
+    {
+        width: 70%;
+    }
+
+    .ux-text-button
+    {
+        color: rgb(100, 100, 100);
+    }
+</style>

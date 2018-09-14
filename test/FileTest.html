@@ -1,0 +1,567 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>File Test</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css">
+        <link rel="stylesheet" href="../foundation.css">
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        <script src="../foundation.js"></script>
+        <link rel="stylesheet" href="../home.css">
+    </head>
+    <body>
+    <div class="centered-box">
+        <div class="ux-upload">
+            <div class="upload-prompt">
+                <i class="material-icons">cloud_download</i>
+                <div class="prompt-message-large">Drag and drop files</div>
+                <div class="prompt-message-small">or</div>
+                <div class="ux-light-button browse-button">Browse</div>
+            </div>
+            <div class="upload-controls-container">
+                <button class="ux-raised-button rippled primary upload-button">Upload</button>
+            </div>
+            <form action="http://127.0.0.1/upload" method="post">
+                <input type="file" multiple>
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+
+    </body>
+</html>
+
+<style>
+
+
+
+
+    .upload-result-container .file-item .close-file-button
+    {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: white;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(30%, -30%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .upload-result-container .file-item .close-file-button .material-icons
+    {
+        font-size: 15px;
+        color: rgba(0, 0, 0, 0.6);
+        user-select: none;
+    }
+
+    .upload-result-container .file-item .close-file-button:hover
+    {
+        background-color: rgb(240, 240, 240);
+    }
+    .upload-result-container .file-item .close-file-button:active
+    {
+        background-color: rgb(200, 200, 200);
+    }
+    .upload-result-container .file-item .file-item-label
+    {
+        position: absolute;
+        font-family: "Raleway", sans-serif;
+        color: rgba(0,0,0,.65);
+        font-size: 10px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+    }
+    .upload-controls-container
+    {
+        width: 95%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        height: 11%;
+        padding-bottom: 15px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .upload-result-container
+    {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        max-height: 80%;
+        overflow-y: auto;
+        position: absolute;
+        top: 25px;
+        left: 20px;
+        right: 20px;
+        padding-left: 5%;
+    }
+    .upload-result-container .file-item
+    {
+        width: 75px;
+        height: 95px;
+        /*overflow: hidden;*/
+        /*border-radius: 5px;*/
+        margin: 10px;
+        position: relative;
+        padding-bottom: 15px;
+        transition: all 1s;
+    }
+
+    .upload-result-container .file-item img
+    {
+        width: auto;
+        height: 100%;
+    }
+    .upload-result-container .file-item .img-mask
+    {
+        overflow: hidden;
+        border-radius: 5px;
+        width: 100%;
+        height: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.03);
+
+    }
+    .upload-result-container .file-item .img-mask .material-icons
+    {
+        font-size: 50px;
+        color: rgba(0, 0, 0, 0.67);
+    }
+    .upload-result-container .file-item .progress-bar-tiny
+    {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        height: 4px;
+        bottom: 15px;
+        border-radius: 2px;
+        border: 1px solid #1890ff;
+        /*background-color: rgba(255, 255, 255, 0.37);*/
+        background-color: #f5f5f5;
+        overflow: hidden;
+    }
+    .upload-result-container .file-item .progress-bar-tiny div
+    {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform-origin: 0 0 0;
+        transform: scaleX(0);
+        transition: transform 1.5s;
+        background-color: #1890ff;
+    }
+    .centered-box
+    {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .ux-upload
+    {
+        width: 70%;
+        height: 70%;
+        background-color: #fdfdfd;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+    .ux-upload::after
+    {
+        content: "";
+        border: 2px dashed #d9d9d9;
+        border-radius: 10px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 20px;
+        margin-bottom: 65px;
+        pointer-events: none;
+        transition: border-color 300ms;
+    }
+    .ux-upload .upload-prompt
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        height: 89%;
+        padding: 12% 0px;
+    }
+    .ux-upload .upload-prompt .prompt-message-large,
+    .ux-upload .upload-prompt .prompt-message-small
+    {
+        font-family: "Raleway", sans-serif;
+        transition: color 300ms;
+    }
+    .ux-upload .upload-prompt .prompt-message-large
+    {
+        font-size: 30px;
+        color: rgba(0, 0, 0, 0.87);
+    }
+    .ux-upload .upload-prompt .prompt-message-small
+    {
+        color: rgb(100, 100, 100);
+        font-size: 20px;
+    }
+    .ux-upload .upload-prompt .material-icons
+    {
+        color: cornflowerblue;
+        font-size: 70px;
+    }
+    .ux-upload form
+    {
+        display: none;
+    }
+    .ux-upload.dropped::after
+    {
+        border-color: cornflowerblue;
+    }
+    .ux-upload.dropped .upload-prompt .prompt-message-large,
+    .ux-upload.dropped .upload-prompt .prompt-message-small
+    {
+        color: cornflowerblue;
+    }
+
+    .ux-light-button
+    {
+        height: 32px;
+        border: 1px solid #d9d9d9;
+        font-family: "Raleway", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 15px;
+        font-size: 14px;
+        color: rgba(0,0,0,.65);
+        border-radius: 4px;
+        user-select: none;
+        cursor: pointer;
+        transition: all .3s cubic-bezier(.645,.045,.355,1), opacity 130ms;
+    }
+    .ux-light-button .material-icons
+    {
+        margin-right: 5px;
+    }
+    .ux-light-button:hover
+    {
+        border-color: deepskyblue;
+        color: deepskyblue;
+    }
+
+    .ux-light-button:active
+    {
+        outline: 0;
+        opacity: 0.1;
+    }
+
+</style>
+
+<script>
+    setTimeout(() => {
+        addUploadListeners();
+    }, 100);
+
+    function addUploadListeners()
+    {
+        let uxuploads = document.getElementsByClassName("ux-upload");
+        for (let i = 0; i < uxuploads.length;i++)
+        {
+            let uploadForm = uxuploads[i];
+            let form = uploadForm.querySelector("form");
+            let browseButton = uploadForm.querySelector(".browse-button");
+            let inputElement = form.querySelector("input[type='file']");
+            let submitButton = form.querySelector("input[type='submit']");
+            let uploadButton = uploadForm.querySelector(".upload-button");
+            let files = [];
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                // alert("submit");
+                const request = new XMLHttpRequest();
+                request.onload = () => {
+                    console.log(request.responseText);
+                };
+                // request.open(form.method, form.action);
+                request.open("POST", "/upload");
+                request.send(form);
+            });
+            uploadButton.addEventListener("click", () => submitButton.click());
+            submitButton.addEventListener("click", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                // form.submit();
+            });
+            browseButton.addEventListener("click", () => {
+                setTimeout(() => {
+                    inputElement.click();
+                }, 200);
+            });
+            inputElement.addEventListener("change", () => {
+                for (let j = 0; j < inputElement.files.length; j++)
+                    files.push(inputElement.files[j]);
+                loadUploadForm(uploadForm, files);
+            });
+            uploadForm.addEventListener("drop", event => {
+                event.preventDefault();
+                if (event.dataTransfer == null || event.dataTransfer.items.length <= 0)
+                    return;
+                for (let i = 0; i < event.dataTransfer.items.length; i++)
+                {
+                    let file = event.dataTransfer.items[i].getAsFile();
+                    files.push(file);
+                }
+                for (let i = 0; i < event.dataTransfer.items.length; i++)
+                    event.dataTransfer.items = null;
+                loadUploadForm(uploadForm, files);
+            }, true);
+            uploadForm.addEventListener("dragover", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                uploadForm.classList.add("dropped");
+            }, true);
+            uploadForm.addEventListener("dragleave", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                uploadForm.classList.remove("dropped");
+            }, true);
+        }
+    }
+
+    function loadUploadForm(uploadForm, files)
+    {
+        let resultsContainer = uploadForm.querySelector(".upload-result-container");
+        let prompt = uploadForm.querySelector(".upload-prompt");
+        let form = uploadForm.querySelector("form");
+        let inputElement = form.querySelector("input[type='file']");
+        let submitButton = form.querySelector("input[type='submit']");
+        let formData = new FormData(form);
+
+        if (resultsContainer == null)
+        {
+            resultsContainer = document.createElement("div");
+            resultsContainer.className = "upload-result-container";
+            uploadForm.insertBefore(resultsContainer, uploadForm.querySelector(".upload-controls-container"));
+        }
+
+        if (prompt != null)
+            prompt.parentElement.removeChild(prompt);
+        for (let i = 0; i < files.length; i++)
+        {
+            let file = files[i];
+            let uploadedFiles = uploadForm.querySelectorAll(".file-item-label");
+            let skipFile = false;
+            for (let j = 0; j < uploadedFiles.length; j++)
+            {
+                let fileName = uploadedFiles[j].textContent;
+                if (fileName === file.name)
+                {
+                    skipFile = true;
+                    break;
+                }
+            }
+            if (skipFile)
+                continue;
+            let fileItem = document.createElement("div");
+            let thumb = document.createElement("img");
+            let progressBar = document.createElement("div");
+            let fill = document.createElement("div");
+            let fileItemLabel = document.createElement("div");
+            let mask = document.createElement("div");
+            let placeholderIcon = document.createElement("i");
+            let closeButton = document.createElement("div");
+            let xIcon = document.createElement("i");
+            xIcon.className = "material-icons";
+            xIcon.innerText = "close";
+            closeButton.className = "close-file-button";
+            closeButton.appendChild(xIcon);
+            placeholderIcon.className = "material-icons";
+            placeholderIcon.innerText = "cloud_queue";
+            mask.className = "img-mask";
+            mask.appendChild(placeholderIcon);
+            fileItem.className = "file-item";
+            progressBar.className = "progress-bar-tiny";
+            fileItemLabel.className = "file-item-label";
+            progressBar.appendChild(fill);
+            fileItemLabel.appendChild(document.createTextNode(file.name));
+            fileItem.appendChild(mask);
+            fileItem.appendChild(progressBar);
+            fileItem.appendChild(fileItemLabel);
+            fileItem.appendChild(closeButton);
+            resultsContainer.appendChild(fileItem);
+            closeButton.onclick = () => {
+                fileItem.style.transform = "translateX(100%)";
+                fileItem.style.opacity = "0";
+                setTimeout(() => {
+                    files.splice(files.indexOf(file), 0);
+                    fileItem.parentElement.removeChild(fileItem);
+                    inputElement.files = files;
+                }, 1000);
+            };
+            setTimeout(() => {
+                fill.style.transform = "scaleX(0.5)";
+            }, 300);
+            let reader = new FileReader();
+            reader.onload = () => {
+                placeholderIcon.parentElement.removeChild(placeholderIcon);
+                thumb.setAttribute("src", reader.result);
+                mask.appendChild(thumb);
+                setTimeout(() => {
+                    fill.style.transform = "scaleX(1)";
+                }, 300);
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+
+
+
+
+
+
+    /*
+                 <div class="upload-result-container">
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+                <div class="file-item">
+                    <img src="https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="">
+                    <div class="progress-bar-tiny"><div></div></div>
+                </div>
+            </div>
+     */
+
+</script>
+

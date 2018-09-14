@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css">
+    <link rel="stylesheet" href="../src/foundation.css">
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="../src/foundation.js"></script>
+    <link rel="stylesheet" href="home.css">
+</head>
+    <body>
+        <div class="app-bar">
+            <a href="home.html" class="title-header">UX Kit</a>
+        </div>
+
+        <!-- DRAWER -->
+        <div class="ux-drawer static">
+            <div class="ux-drawer-items">
+                <a href="home.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">home</i>
+                    Home
+                </a>
+                <a href="getting-started.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">star</i>
+                    Getting Started
+                </a>
+
+                <div class="rippled ux-drawer-item">
+                    <i class="material-icons">info</i>
+                    About
+                </div>
+
+                <div class="ux-expansion-pane open">
+                    <div class="ux-expansion-control">
+                        Components
+                        <i class="material-icons">keyboard_arrow_down</i>
+                    </div>
+                    <div class="ux-expansion-content">
+                        <div>
+                            <a class="rippled" href="buttons-demo.html">
+                                Buttons
+                            </a>
+                            <a class="rippled" href="forms-demo.html">
+                                Forms
+                            </a>
+                            <a class="rippled" href="popover-demo.html">
+                                Popovers
+                            </a>
+                            <a class="rippled" href="dialog-demo.html">
+                                Dialogs
+                            </a>
+                            <a class="rippled" href="alerts-demo.html">
+                                Alerts
+                            </a>
+                            <a class="rippled" href="drawers-demo.html">
+                                Drawers
+                            </a>
+                            <a class="rippled" href="uploads-demo.html">
+                                Uploads
+                            </a>
+                            <a class="rippled" href="progress-demo.html">
+                                Progress
+                            </a>
+                            <a class="rippled" href="tabs-demo.html">
+                                Tabs
+                            </a>
+                            <a class="rippled" href="expansion-panel-demo.html">
+                                Expansion Panes
+                            </a>
+                            <a class="rippled" href="snackbar-demo.html">
+                                Snack Bars
+                            </a>
+                            <a class="rippled" href="tooltips-demo.html">
+                                Tooltips
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="stack-container">
+                <div class="header">Buttons</div>
+                
+                <!--BUTTON TYPE-->
+                <div class="sub-header">Raised</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="raised-markup-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <button class="ux-raised-button rippled">
+                        Default
+                    </button>
+                    <button class="ux-raised-button rippled primary">
+                        Primary
+                    </button>
+                    <button class="ux-raised-button rippled secondary">
+                        Secondary
+                    </button>
+                    <button class="ux-raised-button rippled" disabled>
+                        Disabled
+                    </button>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="raised-markup-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<button class="ux-raised-button rippled">DEFAULT</button>
+<button class="ux-raised-button rippled" disabled>Disabled</button>
+<button class="ux-raised-button rippled primary">Primary</button>
+<button class="ux-raised-button rippled secondary">Secondary</button>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+                <!--BUTTON TYPE-->
+                <div class="sub-header">Raised With Icon</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="raised-icon-markup-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="ux-raised-button rippled">
+                        <i class="material-icons">home</i>
+                        DEFAULT
+                    </div>
+                    <div class="ux-raised-button rippled primary">
+                        <i class="material-icons">settings</i>
+                        Primary
+                    </div>
+                    <div class="ux-raised-button rippled secondary">
+                        <i class="material-icons">email</i>
+                        Secondary
+                    </div>
+                    <div class="ux-raised-button rippled disabled">
+                        <i class="material-icons">home</i>
+                        Disabled
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="raised-icon-markup-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<div class="ux-raised-button rippled">
+    <i class="material-icons">home</i>
+    DEFAULT
+</div>
+<div class="ux-raised-button rippled primary">
+    <i class="material-icons">home</i>
+    Primary
+</div>
+<div class="ux-raised-button rippled secondary">
+    <i class="material-icons">home</i>
+    Secondary
+</div>
+<div class="ux-raised-button rippled disabled">
+    <i class="material-icons">home</i>
+    Disabled
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+                <!--BUTTON TYPE-->
+                <div class="sub-header">Flat</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="flat-markup-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <button class="ux-flat-button rippled">Default</button>
+                    <button class="ux-flat-button rippled primary">Primary</button>
+                    <button class="ux-flat-button rippled secondary">Secondary</button>
+                    <button class="ux-flat-button rippled" disabled>Disabled</button>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="flat-markup-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<button class="ux-flat-button rippled">Default</button>
+<button class="ux-flat-button rippled primary">Primary</button>
+<button class="ux-flat-button rippled secondary">Secondary</button>
+<button class="ux-flat-button rippled" disabled>Disabled</button>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+
+                <!--BUTTON TYPE-->
+                <div class="sub-header">Text</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="text-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <button class="ux-text-button rippled">Default</button>
+                    <button class="ux-text-button rippled primary">Primary</button>
+                    <button class="ux-text-button rippled secondary">Secondary</button>
+                    <button class="ux-text-button rippled" disabled>Disabled</button>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="text-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<button class="ux-text-button rippled">Default</button>
+<button class="ux-text-button rippled primary">Primary</button>
+<button class="ux-text-button rippled secondary">Secondary</button>
+<button class="ux-text-button rippled" disabled>Disabled</button>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+
+                <!--BUTTON TYPE-->
+                <div class="sub-header">Outline</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="outline-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <button class="ux-outline-button rippled">Default</button>
+                    <button class="ux-outline-button rippled primary">Primary</button>
+                    <button class="ux-outline-button rippled secondary">Secondary</button>
+                    <button class="ux-outline-button rippled" disabled>Disabled</button>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="outline-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<button class="ux-outline-button rippled">Default</button>
+<button class="ux-outline-button rippled primary">Primary</button>
+<button class="ux-outline-button rippled secondary">Secondary</button>
+<button class="ux-outline-button rippled" disabled>Disabled</button>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+
+                <!--BUTTON TYPE-->
+                <div class="sub-header">Icon Buttons</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="icon-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="vbox">
+                        <button class="ux-icon-button rippled">
+                            <i class="material-icons">delete</i>
+                        </button>
+                        <div class="display tiny">Default</div>
+                    </div>
+                    <div class="vbox">
+                        <button class="ux-icon-button rippled">
+                            <i class="material-icons">email</i>
+                        </button>
+                        <div class="display tiny">Default</div>
+                    </div>
+                    <div class="vbox">
+                        <button class="ux-icon-button rippled">
+                            <i class="material-icons">local_cafe</i>
+                        </button>
+                        <div class="display tiny">Default</div>
+                    </div>
+                    <div class="vbox">
+                        <button class="ux-icon-button rippled">
+                            <i class="material-icons">bluetooth_audio</i>
+                        </button>
+                        <div class="display tiny">Default</div>
+                    </div>
+                    <div class="vbox">
+                        <button class="ux-icon-button rippled">
+                            <i class="material-icons">dehaze</i>
+                        </button>
+                        <div class="display tiny">Default</div>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="icon-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<button class="ux-icon-button rippled">
+    <i class="material-icons">delete</i>
+</button>
+<button class="ux-icon-button rippled" disabled>
+    <i class="material-icons">delete</i>
+</button>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+
+                <!--BUTTON TYPE-->
+                <div class="sub-header">Light Buttons</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="light-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <button class="ux-light-button">Default</button>
+                    <button class="ux-light-button primary">Primary</button>
+                    <button class="ux-light-button secondary">Secondary</button>
+                    <!--<button class="ux-light-button">-->
+                        <!--<i class="material-icons">cloud_download</i>-->
+                        <!--Download-->
+                    <!--</button>-->
+                    <button class="ux-light-button primary" disabled>Disabled</button>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="light-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<button class="ux-light-button">Default</button>
+<button class="ux-light-button primary">Primary</button>
+<button class="ux-light-button secondary">Secondary</button>
+<button class="ux-light-button primary" disabled>Disabled</button>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+
+                <!--BUTTON TYPE-->
+                <div class="sub-header">Light Buttons With Icon</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="light-icon-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <button class="ux-light-button">
+                        <i class="material-icons">cloud_download</i>
+                        Download
+                    </button>
+                    <button class="ux-light-button primary">
+                        <i class="material-icons">cloud_upload</i>
+                        Upload
+                    </button>
+                    <button class="ux-light-button secondary">
+                        <i class="material-icons">delete_forever</i>
+                        Delete
+                    </button>
+                    <button class="ux-light-button primary">
+                        <i class="material-icons">save</i>
+                        Save
+                    </button>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="light-icon-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<button class="ux-light-button">Default</button>
+<button class="ux-light-button primary">Primary</button>
+<button class="ux-light-button secondary">Secondary</button>
+<button class="ux-light-button primary" disabled>Disabled</button>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+                <!-- BUTTON SIZES -->
+                <div class="header">Button Sizes</div>
+                <div class="sub-header">Large</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="large-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="ux-raised-button rippled primary large">Large</div>
+                    <div class="ux-flat-button rippled primary large">Large</div>
+                    <div class="ux-raised-button rippled primary large">
+                        <i class="material-icons">home</i>
+                        Large
+                    </div>
+                    <div class="ux-text-button rippled primary large">Large</div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="large-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<div class="ux-raised-button rippled primary large">Large</div>
+<div class="ux-flat-button rippled primary large">Large</div>
+<div class="ux-raised-button rippled primary large">
+    <i class="material-icons">home</i>
+    Large
+</div>
+<div class="ux-text-button rippled primary large">Large</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+
+                <!--BUTTON TYPE-->
+                <div class="sub-header">Small</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="small-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="ux-raised-button rippled primary small">Small</div>
+                    <div class="ux-flat-button rippled primary small">Small</div>
+                    <div class="ux-raised-button rippled primary small">
+                        <i class="material-icons">home</i>
+                        Small
+                    </div>
+                    <div class="ux-text-button rippled primary small">Small</div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="small-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<div class="ux-raised-button rippled primary small">
+    <i class="material-icons">cloud_download</i>
+    Small
+</div>
+<div class="ux-raised-button rippled primary small">
+    Small
+</div>
+<div class="ux-raised-button rippled small">
+    <i class="material-icons">cloud_download</i>
+    Small
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tooltips</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css">
+    <link rel="stylesheet" href="../src/foundation.css">
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="../src/foundation.js"></script>
+    <link rel="stylesheet" href="home.css">
+</head>
+    <body>
+        <div class="app-bar">
+            <a href="home.html" class="title-header">UX Kit</a>
+        </div>
+
+        <!-- DRAWER -->
+        <div class="ux-drawer static">
+            <div class="ux-drawer-items">
+                <a href="home.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">home</i>
+                    Home
+                </a>
+                <a href="getting-started.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">star</i>
+                    Getting Started
+                </a>
+
+                <div class="rippled ux-drawer-item">
+                    <i class="material-icons">info</i>
+                    About
+                </div>
+
+                <div class="ux-expansion-pane open">
+                    <div class="ux-expansion-control">
+                        Components
+                        <i class="material-icons">keyboard_arrow_down</i>
+                    </div>
+                    <div class="ux-expansion-content">
+                        <div>
+                            <a class="rippled" href="buttons-demo.html">
+                                Buttons
+                            </a>
+                            <a class="rippled" href="forms-demo.html">
+                                Forms
+                            </a>
+                            <a class="rippled" href="popover-demo.html">
+                                Popovers
+                            </a>
+                            <a class="rippled" href="dialog-demo.html">
+                                Dialogs
+                            </a>
+                            <a class="rippled" href="alerts-demo.html">
+                                Alerts
+                            </a>
+                            <a class="rippled" href="drawers-demo.html">
+                                Drawers
+                            </a>
+                            <a class="rippled" href="uploads-demo.html">
+                                Uploads
+                            </a>
+                            <a class="rippled" href="progress-demo.html">
+                                Progress
+                            </a>
+                            <a class="rippled" href="tabs-demo.html">
+                                Tabs
+                            </a>
+                            <a class="rippled" href="expansion-panel-demo.html">
+                                Expansion Panes
+                            </a>
+                            <a class="rippled" href="snackbar-demo.html">
+                                Snack Bars
+                            </a>
+                            <a class="rippled" href="tooltips-demo.html">
+                                Tooltips
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="stack-container">
+                <div class="header">Tooltips</div>
+
+                <!--BASIC TOOLTIP-->
+                <div class="sub-header">Basic Tooltip</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="basic-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <button class="ux-icon-button rippled ux-tip" tooltip="Delete">
+                        <i class="material-icons">delete</i>
+                    </button>
+                    <button class="ux-flat-button rippled ux-tip" tooltip="Tooltip!">Button</button>
+                    <button class="ux-icon-button rippled ux-tip" tooltip="Homepage">
+                        <i class="material-icons">home</i>
+                    </button>
+
+                    <button class="ux-icon-button rippled ux-tip" tooltip="Download">
+                        <i class="material-icons">cloud_download</i>
+                    </button>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="basic-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<button class="ux-icon-button rippled ux-tip" tooltip="Delete">
+    <i class="material-icons">delete</i>
+</button>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+                <!--DELAYED TOOLTIP-->
+                <div class="sub-header">Custom Delay</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="delayed-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <button class="ux-text-button rippled primary ux-tip" delay="500" tooltip="I am a tooltip">
+                        1/2 Second
+                    </button>
+                    <button class="ux-text-button rippled primary ux-tip" delay="1000" tooltip="One Second Delay!">
+                        1 Second
+                    </button>
+                    <button class="ux-text-button rippled primary ux-tip" delay="2000" tooltip="Two Second Delay!">
+                        2 Second
+                    </button>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="delayed-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<button class="ux-text-button rippled primary ux-tip"
+        delay="500"
+        tooltip="I am a tooltip">
+    1/2 Second
+</button>
+<button class="ux-text-button rippled primary ux-tip"
+        delay="1000"
+        tooltip="One Second Delay!">
+    1 Second
+</button>
+<button class="ux-text-button rippled primary ux-tip"
+        delay="2000"
+        tooltip="Two Second Delay!">
+    2 Second
+</button>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Progress Test</title>
+        <link rel="stylesheet" href="../foundation.css">
+        <script src="../foundation.js"></script>
+        <link rel="stylesheet" href="../home.css">
+    </head>
+    <body>
+        <div class="stacked">
+            <div class="layout">
+                <div class="hbox">
+                    <div class="vbox-flex">
+                        <div class="ux-circular-progress" id="circle-bar">
+                            <svg viewBox="0 0 100 100" width="120px" height="120px">
+                                <path class="circle-path" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                                <path class="circle-fill" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                            </svg>
+                            <span>0%</span>
+                        </div>
+                        <div class="ux-stepper">
+                            <div class="add" id="add-circle"><span>+</span></div>
+                            <div class="minus" id="minus-circle"><span>-</span></div>
+                        </div>
+                    </div>
+                    <div class="vbox-flex">
+                        <div class="ux-circular-progress completed">
+                            <svg viewBox="0 0 100 100" width="120px" height="120px">
+                                <path class="circle-path" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                                <path class="circle-fill" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                            </svg>
+                            <span>
+                                <i class="material-icons">check</i>
+                            </span>
+                        </div>
+                        <div class="prompt">Success!</div>
+                    </div>
+                    <div class="vbox-flex">
+                        <div class="ux-circular-progress error">
+                            <svg viewBox="0 0 100 100" width="120px" height="120px">
+                                <path class="circle-path" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                                <path class="circle-fill" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                            </svg>
+                            <span>
+                                <i class="material-icons">close</i>
+                            </span>
+                        </div>
+                        <div class="prompt">Error Loading</div>
+                    </div>
+                </div>
+                <div class="vbox wide">
+                    <div class="wide">
+                        <div class="ux-progress-bar">
+                            <div class="bar"></div>
+                            <div class="fill"></div>
+                            <span>0%</span>
+                        </div>
+                        <div class="ux-stepper">
+                            <div class="add" id="add-bar"><span>+</span></div>
+                            <div class="minus" id="minus-bar"><span>-</span></div>
+                        </div>
+                    </div>
+                    <div class="ux-progress-bar error">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                        <span>
+                            <i class="material-icons">error</i>
+                        </span>
+                    </div>
+                    <div class="ux-progress-bar completed">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                        <span>
+                            <i class="material-icons">check_circle</i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="layout">
+                <div class="hbox">
+                    <div class="vbox-flex">
+                        <div class="ux-loader">
+                            <svg viewBox="0 0 100 100" width="120px" height="120px">
+                                <path class="circle-path" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                                <path class="circle-fill" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+<style>
+
+
+    .ux-progress-bar
+    {
+        width: 100%;
+        height: 5px;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    .ux-progress-bar span
+    {
+        font-family: "Raleway", sans-serif;
+        color: rgba(100, 100, 100);
+        font-size: 14px;
+        width: 6%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        transform: translateY(25%);
+    }
+
+    .ux-progress-bar::after
+    {
+        content: "";
+        background-color: #f3f3f3;
+        width: 93%;
+        height: 100%;
+        border-radius: 5px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+    }
+
+
+    .ux-progress-bar .fill
+    {
+        background-color: #108ee9;
+        width: 0;
+        height: 100%;
+        max-width: 93%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        border-radius: 5px;
+        transition: width 8s;
+        z-index: 2;
+    }
+
+    .ux-progress-bar.completed .fill
+    {
+        background-color: #52c41a;
+        width: 100%;
+    }
+    .ux-progress-bar.completed span .material-icons
+    {
+        color: #52c41a;
+        font-size: 18px;
+    }
+
+    .ux-progress-bar.error .fill
+    {
+        background-color: #ED6252;
+        width: 67%;
+    }
+    .ux-progress-bar.error span .material-icons
+    {
+        color: #ED6252;
+        font-size: 18px;
+    }
+
+
+
+    /*     END     */
+
+    .ux-stepper
+    {
+        margin-top: 10px;
+    }
+
+    .prompt
+    {
+        height: 32px;
+        font-family: "Raleway", sans-serif;
+        font-weight: 200;
+        margin-top: 10px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    .ux-stepper
+    {
+        width: 90px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .ux-stepper .add,
+    .ux-stepper .minus
+    {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        width: 50%;
+        height: 100%;
+        color: rgb(100, 100, 100);
+        cursor: pointer;
+        transition: all .3s cubic-bezier(.645,.045,.355,1), opacity 130ms;
+    }
+    .ux-stepper .minus
+    {
+        border: 1px solid #d9d9d9;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    .ux-stepper .add
+    {
+        border: 1px solid #d9d9d9;
+        border-right-color: transparent;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    .ux-stepper .add span,
+    .ux-stepper .minus span
+    {
+        font-family: "Raleway", sans-serif;
+        font-weight: 100;
+        font-size: 35px;
+        height: 50%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        user-select: none;
+
+    }
+    .ux-stepper .minus span
+    {
+        line-height: 0.85;
+    }
+    .ux-stepper .add span
+    {
+        line-height: 1;
+    }
+    .ux-stepper:hover .minus
+    {
+        border-left-color: transparent;
+    }
+    .ux-stepper .add:hover,
+    .ux-stepper .minus:hover
+    {
+        color: #6ca2ff;
+        border-color: #6ca2ff;
+    }
+
+    .ux-stepper .add:active,
+    .ux-stepper .minus:active
+    {
+        opacity: 0.1;
+    }
+
+    .hbox
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        min-width: 500px;
+        height: 300px;
+        padding: 10px;
+    }
+
+    .vbox
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        width: 300px;
+        height: 300px;
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    .vbox-flex
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        /*height: 100%;*/
+    }
+
+    .wide
+    {
+        width: 600px;
+
+    }
+
+    .vbox.wide
+    {
+        min-width: 600px;
+    }
+
+
+    .stacked
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .layout
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        min-height: 100px;
+        margin-bottom: 50px;
+    }
+
+
+</style>
+
+
+<script>
+    setTimeout(() => {
+        addProgressListeners();
+        addDemoListeners();
+    }, 100);
+
+    function addDemoListeners()
+    {
+        let addCircle = document.getElementById("add-circle");
+        let minusCircle = document.getElementById("minus-circle");
+        let demoBar = document.getElementById("circle-bar");
+        let addBar = document.getElementById("add-bar");
+        let minusBar = document.getElementById("minus-bar");
+        let label = demoBar.querySelector("span");
+        addCircle.addEventListener("click", () => {
+            if (!addCircle.hasAttribute("progress"))
+                addCircle.setAttribute("progress", "0");
+            let currentValue = parseInt(addCircle.getAttribute("progress"));
+            currentValue += 20;
+            addCircle.setAttribute("progress", `${currentValue}`);
+            demoBar.setProgress(currentValue);
+        });
+        minusCircle.addEventListener("click", () => {
+            if (!addCircle.hasAttribute("progress"))
+                addCircle.setAttribute("progress", "0");
+            let currentValue = parseInt(addCircle.getAttribute("progress"));
+            currentValue -= 20;
+            addCircle.setAttribute("progress", `${currentValue}`);
+            demoBar.setProgress(currentValue);
+        });
+    }
+
+    function addProgressListeners()
+    {
+        let progressBars = document.getElementsByClassName("ux-progress-bar");
+        for (let i = 0; i < progressBars.length; i++)
+        {
+            let bar = progressBars[i];
+            let label = bar.querySelector("span");
+            bar.setProgress = function(progress) {
+
+            };
+            bar.addEventListener("click", () => {
+                bar.querySelector(".fill").style.width = "100%";
+                let increaseValue = setInterval(() => {
+                    let currentValue;
+                    try
+                    {
+                        let textValue = label.innerText.replace("%", "");
+                        if (!textValue.match("[0-9]+"))
+                        {
+                            clearInterval(increaseValue);
+                            return;
+                        }
+                        currentValue = parseInt(textValue);
+                    }
+                    catch (e) { return; }
+                    if (currentValue >= 100)
+                    {
+                        clearInterval(increaseValue);
+                        label.innerText = "";
+                        let checkIcon = document.createElement("i");
+                        checkIcon.className = "material-icons";
+                        checkIcon.innerText = "check_circle";
+                        label.appendChild(checkIcon);
+                        bar.classList.add("completed");
+                        return;
+                    }
+                    currentValue++;
+                    label.innerText = `${currentValue}%`;
+                }, 54);
+            });
+        }
+    }
+
+    // function addProgressListeners()
+    // {
+    //     let circularProgresses = document.getElementsByClassName("ux-circular-progress");
+    //     let progressBars = document.getElementsByClassName("ux-progress-bar");
+    //     for (let i = 0; i < circularProgresses.length; i++)
+    //     {
+    //         let circularProgress = circularProgresses[i];
+    //         let fill = circularProgress.querySelector(".circle-fill");
+    //         circularProgress.addEventListener("click", () => {
+    //             fill.style.strokeOpacity = "1";
+    //             fill.style.strokeDasharray = "300px, 295px";
+    //             let label = circularProgress.querySelector("span");
+    //             let increaseValue = setInterval(() => {
+    //                 let textValue = label.innerText.replace("%", "");
+    //                 if (!textValue.match("[0-9]+"))
+    //                 {
+    //                     clearInterval(increaseValue);
+    //                     return;
+    //                 }
+    //                 let currentValue = parseInt(textValue);
+    //                 if (currentValue >= 100)
+    //                 {
+    //                     clearInterval(increaseValue);
+    //                     label.innerText = "";
+    //                     let checkIcon = document.createElement("i");
+    //                     checkIcon.className = "material-icons";
+    //                     checkIcon.innerText = "check";
+    //                     label.appendChild(checkIcon);
+    //                     circularProgress.classList.add("completed");
+    //                     return;
+    //                 }
+    //                 currentValue++;
+    //                 label.innerText = `${currentValue}%`;
+    //             }, 64);
+    //         });
+    //     }
+    //     for (let i = 0; i < progressBars.length; i++)
+    //     {
+    //         let bar = progressBars[i];
+    //         let label = bar.querySelector("span");
+    //         bar.addEventListener("click", () => {
+    //             bar.querySelector(".fill").style.width = "100%";
+    //             let increaseValue = setInterval(() => {
+    //                 let currentValue;
+    //                 try
+    //                 {
+    //                     let textValue = label.innerText.replace("%", "");
+    //                     if (!textValue.match("[0-9]+"))
+    //                     {
+    //                         clearInterval(increaseValue);
+    //                         return;
+    //                     }
+    //                     currentValue = parseInt(textValue);
+    //                 }
+    //                 catch (e) { return; }
+    //                 if (currentValue >= 100)
+    //                 {
+    //                     clearInterval(increaseValue);
+    //                     label.innerText = "";
+    //                     let checkIcon = document.createElement("i");
+    //                     checkIcon.className = "material-icons";
+    //                     checkIcon.innerText = "check_circle";
+    //                     label.appendChild(checkIcon);
+    //                     bar.classList.add("completed");
+    //                     return;
+    //                 }
+    //                 currentValue++;
+    //                 label.innerText = `${currentValue}%`;
+    //             }, 54);
+    //         });
+    //     }
+    // }
+
+</script>

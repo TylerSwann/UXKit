@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Snack Bars</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css">
+        <link rel="stylesheet" href="../src/foundation.css">
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        <script src="../src/foundation.js"></script>
+        <link rel="stylesheet" href="home.css">
+    </head>
+    <body>
+        <div class="app-bar">
+            <a href="home.html" class="title-header">UX Kit</a>
+        </div>
+
+        <!-- DRAWER -->
+        <div class="ux-drawer static">
+            <div class="ux-drawer-items">
+                <a href="home.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">home</i>
+                    Home
+                </a>
+                <a href="getting-started.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">star</i>
+                    Getting Started
+                </a>
+
+                <div class="rippled ux-drawer-item">
+                    <i class="material-icons">info</i>
+                    About
+                </div>
+
+                <div class="ux-expansion-pane open">
+                    <div class="ux-expansion-control">
+                        Components
+                        <i class="material-icons">keyboard_arrow_down</i>
+                    </div>
+                    <div class="ux-expansion-content">
+                        <div>
+                            <a class="rippled" href="buttons-demo.html">
+                                Buttons
+                            </a>
+                            <a class="rippled" href="forms-demo.html">
+                                Forms
+                            </a>
+                            <a class="rippled" href="popover-demo.html">
+                                Popovers
+                            </a>
+                            <a class="rippled" href="dialog-demo.html">
+                                Dialogs
+                            </a>
+                            <a class="rippled" href="alerts-demo.html">
+                                Alerts
+                            </a>
+                            <a class="rippled" href="drawers-demo.html">
+                                Drawers
+                            </a>
+                            <a class="rippled" href="uploads-demo.html">
+                                Uploads
+                            </a>
+                            <a class="rippled" href="progress-demo.html">
+                                Progress
+                            </a>
+                            <a class="rippled" href="tabs-demo.html">
+                                Tabs
+                            </a>
+                            <a class="rippled" href="expansion-panel-demo.html">
+                                Expansion Panes
+                            </a>
+                            <a class="rippled" href="snackbar-demo.html">
+                                Snack Bars
+                            </a>
+                            <a class="rippled" href="tooltips-demo.html">
+                                Tooltips
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="stack-container">
+                <div class="header">Snack Bars</div>
+
+
+                <!--SIMPLE-->
+                <div class="sub-header">Simple Snack Bars</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="simple-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <button class="ux-text-button rippled primary" id="snackbar-basic1">
+                        Basic
+                    </button>
+                    <button class="ux-text-button rippled primary" id="snackbar-basic2">
+                        Basic
+                    </button>
+                    <button class="ux-text-button rippled primary" id="snackbar-basic3">
+                        Basic
+                    </button>
+                </div>
+                <div class="ux-snackbar" trigger="snackbar-basic1">
+                    Message Deleted!
+                </div>
+                <div class="ux-snackbar" trigger="snackbar-basic2">
+                    Saved!
+                </div>
+                <div class="ux-snackbar" trigger="snackbar-basic3">
+                    Sent!
+                </div>
+
+                <div class="ux-expansion-pane code-preview-expansion" trigger="simple-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<button class="ux-text-button rippled primary" id="snackbar-basic1">
+    Basic
+</button>
+<div class="ux-snackbar" trigger="snackbar-basic1">
+    Message Deleted!
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+                <!--CUSTOM DELAY-->
+                <div class="sub-header">Custom Delay</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="delay-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <button class="ux-text-button rippled primary" id="snackbar-delayed1">
+                        5 Second Delay
+                    </button>
+                    <button class="ux-text-button rippled primary" id="snackbar-delayed2">
+                        1 Second Delay
+                    </button>
+                    <button class="ux-text-button rippled primary" id="snackbar-delayed3">
+                        Default Delay
+                    </button>
+                </div>
+                <div class="ux-snackbar" trigger="snackbar-delayed1" delay="5000">
+                    Sent!
+                </div>
+                <div class="ux-snackbar" trigger="snackbar-delayed2" delay="1000">
+                    Saved!
+                </div>
+                <div class="ux-snackbar" trigger="snackbar-delayed3">
+                    Thanks!
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="delay-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<button class="ux-text-button rippled primary" id="snackbar-delayed1">
+    5 Second Delay
+</button>
+<div class="ux-snackbar" trigger="snackbar-delayed1" delay="5000">
+    Sent!
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </body>
+</html>

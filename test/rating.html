@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Rating</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../foundation.css">
+        <script src="../foundation.js"></script>
+        <link rel="stylesheet" href="../home.css">
+    </head>
+    <body>
+        <div class="stack">
+            <div class="layout">
+                <div class="ux-star-rate">
+                    <i class="material-icons">star_border</i>
+                    <i class="material-icons">star_border</i>
+                    <i class="material-icons">star_border</i>
+                    <i class="material-icons">star_border</i>
+                    <i class="material-icons">star_border</i>
+                </div>
+                <!--<div class="ux-star-rate">-->
+                    <!--<i class="material-icons rated">star</i>-->
+                    <!--<i class="material-icons rated">star</i>-->
+                    <!--<i class="material-icons rated">star_half</i>-->
+                    <!--<i class="material-icons">star_border</i>-->
+                    <!--<i class="material-icons">star_border</i>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </body>
+</html>
+
+<style>
+
+    .ux-star-rate
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 120px;
+        height: 24px;
+        color: rgb(100, 100, 100);
+        cursor: pointer;
+    }
+    .ux-star-rate .material-icons
+    {
+        transition: color 300ms linear;
+    }
+    .ux-star-rate .rating,
+    .ux-star-rate .rated
+    {
+        color: #fadb14;
+    }
+
+    /**   END   **/
+
+
+    .stack
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        min-height: 100vh;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    .layout
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 20px;
+
+    }
+
+</style>
+
+<script>
+    setTimeout(() => {
+        addRatingListeners();
+    }, 100);
+
+    function addRatingListeners()
+    {
+        let starRatings = document.getElementsByClassName("ux-star-rate");
+        function highlight(index, stars, styleClass)
+        {
+            for (let k = 0; k <= index; k++)
+            {
+                let descendingStar = stars[k];
+                descendingStar.innerText = "star";
+                descendingStar.classList.add(styleClass);
+            }
+        }
+        for (let i = 0; i < starRatings.length; i++)
+        {
+            let rating = starRatings[i];
+            let stars = rating.querySelectorAll(".material-icons");
+            for (let j = 0; j < stars.length; j++)
+            {
+                let star = stars[j];
+                let index = j;
+                star.addEventListener("mouseenter", () => highlight(index, stars, "rating"));
+                star.addEventListener("click", () => highlight(index, stars, "rated"));
+                star.addEventListener("mouseout", () => {
+                    for (let k = 0; k < stars.length; k++)
+                    {
+                        let descendingStar = stars[k];
+                        descendingStar.classList.remove("rating");
+                        if (!descendingStar.classList.contains("rated"))
+                            descendingStar.innerText = "star_border";
+                    }
+                });
+            }
+        }
+    }
+</script>
+
+
+

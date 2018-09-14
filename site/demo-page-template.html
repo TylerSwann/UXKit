@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Demo Template</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css">
+        <link rel="stylesheet" href="../src/foundation.css">
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        <script src="../src/foundation.js"></script>
+        <link rel="stylesheet" href="home.css">
+    </head>
+    <body>
+        <div class="app-bar">
+            <a href="home.html" class="title-header">Material Foundation</a>
+        </div>
+
+        <!-- DRAWER -->
+        <div class="ux-drawer static">
+            <div class="ux-drawer-items">
+                <a href="home.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">home</i>
+                    Home
+                </a>
+                <a href="getting-started.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">star</i>
+                    Getting Started
+                </a>
+
+                <div class="rippled ux-drawer-item">
+                    <i class="material-icons">info</i>
+                    About
+                </div>
+
+                <div class="ux-expansion-pane open">
+                    <div class="ux-expansion-control">
+                        Components
+                        <i class="material-icons">keyboard_arrow_down</i>
+                    </div>
+                    <div class="ux-expansion-content">
+                        <div>
+                            <a class="rippled" href="buttons-demo.html">
+                                Buttons
+                            </a>
+                            <a class="rippled" href="forms-demo.html">
+                                Forms
+                            </a>
+                            <a class="rippled" href="popover-demo.html">
+                                Popovers
+                            </a>
+                            <a class="rippled" href="dialog-demo.html">
+                                Dialogs
+                            </a>
+                            <a class="rippled" href="alerts-demo.html">
+                                Alerts
+                            </a>
+                            <a class="rippled" href="drawers-demo.html">
+                                Drawers
+                            </a>
+                            <a class="rippled" href="uploads-demo.html">
+                                Uploads
+                            </a>
+
+                            <a class="rippled" href="tabs-demo.html">
+                                Tabs
+                            </a>
+                            <a class="rippled" href="expansion-panel-demo.html">
+                                Expansion Panes
+                            </a>
+                            <a class="rippled" href="snackbar-demo.html">
+                                Snack Bars
+                            </a>
+                            <a class="rippled" href="tooltips-demo.html">
+                                Tooltips
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ux-snackbar" id="copy-snackbar">Copied</div>
+
+        <div class="container">
+            <div class="stack-container">
+                <div class="header">Buttons</div>
+                <div class="sub-header">Raised Buttons</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="demo-markup-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                    <div class="ux-icon-button rippled ux-tip" tooltip="Copy Source" delay="1300" onclick="copyClick()">
+                        <i class="material-icons">file_copy</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <button class="ux-raised-button rippled">
+                        Default
+                    </button>
+                    <button class="ux-raised-button rippled primary">
+                        Primary
+                    </button>
+                    <button class="ux-raised-button rippled" disabled>
+                        Disabled
+                    </button>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="demo-markup-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<button class="ux-raised-button rippled">DEFAULT</button>
+<button class="ux-raised-button rippled" disabled>Disabled</button>
+<button class="ux-raised-button rippled primary">Primary</button>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
+
+
+<script>
+    function copyClick()
+    {
+        showSnackbar(document.getElementById("copy-snackbar"), 2000);
+    }
+</script>

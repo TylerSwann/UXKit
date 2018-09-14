@@ -1,0 +1,2169 @@
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,500,700,900');
+
+@font-face {
+    /*font-family: "Roboto";*/
+}
+button:focus
+{
+    outline: 0;
+}
+
+.ux-raised-button,
+.ux-flat-button,
+.ux-text-button ,
+.ux-outline-button,
+.ux-icon-button,
+.ux-light-button
+{
+    font-family: unset;
+}
+
+/*************************************************
+*                                                *
+*                      FONT                      *
+*                                                *
+**************************************************/
+
+
+.ux-alert,
+.ux-checkbox label,
+.ux-select label,
+.ux-select select,
+.ux-menu-item,
+.ux-tooltip,
+.ux-upload-box,
+.ux-snackbar,
+.ux-slider span,
+.dialog,
+.context-menu-item,
+.ux-dropdown-menu .ux-dropdown-item,
+.ux-drawer-item,
+.ux-expansion-pane .ux-expansion-control,
+.ux-expansion-pane .ux-expansion-content .rippled,
+.ux-expansion-pane .ux-expansion-content,
+.ux-tab-bar .ux-tab-item,
+.ux-popup-box,
+.ux-text-field,
+.ux-text-field input,
+.ux-raised-button,
+.ux-flat-button,
+.ux-text-button ,
+.ux-outline-button,
+.ux-icon-button,
+.ux-light-button,
+.ux-elevated-button
+{
+    font-family: "Roboto", system-ui, sans-serif;
+}
+
+/*************************************************
+*                                                *
+*                     ALERTS                     *
+*                                                *
+**************************************************/
+
+.ux-alert
+{
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 20px 40px 20px 20px;
+    flex-direction: column;
+
+    font-size: 14px;
+    color: rgba(0,0,0,.65);
+    position: relative;
+    transition: all 500ms;
+    margin: 15px 0;
+}
+
+.ux-alert .title
+{
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.ux-alert.success
+{
+    border: 1px solid #b7eb8f;
+    background-color: #f6ffed;
+}
+
+
+.ux-alert.error
+{
+    border: 1px solid #ffa39e;
+    background-color: #fff1f0;
+}
+
+
+.ux-alert.info
+{
+    border: 1px solid #91d5ff;
+    background-color: #e6f7ff;
+}
+
+.ux-alert .close-button
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: fit-content;
+    margin: auto;
+    right: 10px;
+    font-size: 20px;
+    color: rgba(0,0,0,.65);
+    cursor: pointer;
+}
+.ux-alert.large .close-button
+{
+    top: 10px;
+    bottom: unset;
+}
+
+
+/*************************************************
+*                                                *
+*                    CHECKBOXES                  *
+*                                                *
+**************************************************/
+
+.ux-check-box input[type='checkbox']
+{
+    display: none;
+}
+
+.ux-check-box
+{
+    width: 15px;
+    height: 15px;
+    border: 2px solid #373737;
+    transition: background-color 200ms, border-color 400ms;
+    position: relative;
+    border-radius: 2px;
+}
+
+.ux-check-box::after
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 5px;
+    height: 11px;
+    border: 2px solid white;
+    border-top-width: 0;
+    border-left-width: 0;
+    transform: rotate(35deg) scaleY(0);
+    margin: auto;
+    transition: transform 200ms;
+    opacity: 0;
+}
+
+.ux-check-box span
+{
+    font-family: "Roboto", sans-serif;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 200px;
+    /*line-height: 0.7;*/
+    line-height: 1;
+    color: rgba(100, 100, 100, 0.5);
+    font-size: 15px;
+    font-weight: 400;
+    transform: translateX(11%);
+    transition: background-color 400ms;
+}
+
+.ux-check-box.primary span
+{
+    color: rgba(100, 149, 237, 0.51);
+}
+
+.ux-check-box.secondary span
+{
+    color: rgba(65, 148, 136, 0.51);
+}
+
+.ux-check-box.checked.primary span
+{
+    color: rgba(100, 149, 237, 1);
+}
+.ux-check-box.checked.secondary span
+{
+    color: rgba(65, 148, 136, 1);
+}
+
+.ux-check-box.checked span
+{
+    color: rgba(100, 100, 100, 1.0);
+}
+
+
+
+.ux-check-box.checked::after
+{
+    opacity: 1;
+    transform: rotate(35deg) scaleY(1);
+}
+
+.ux-check-box.checked
+{
+    background-color: #373737;
+}
+
+.ux-check-box.primary.checked
+{
+    background-color: cornflowerblue;
+}
+
+.ux-check-box.primary
+{
+    border: 2px solid cornflowerblue;
+}
+
+.ux-check-box.secondary.checked
+{
+    background-color: #419488;
+}
+
+.ux-check-box.secondary
+{
+    border: 2px solid #419488;
+}
+
+
+.ux-check-box.disabled,
+.ux-check-box.disabled.checked
+{
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-color: rgb(115, 115, 115);
+}
+
+.ux-check-box.disabled.checked
+{
+    background-color: rgb(115, 115, 115);
+}
+
+
+/*************************************************
+*                                                *
+*                  SELECT MENUS                  *
+*                                                *
+**************************************************/
+.ux-select
+{
+    position: relative;
+    min-width: 100px;
+    padding-top: 5px;
+}
+
+.ux-select label
+{
+
+    color: #9e9e9e;
+    font-size: 11px;
+    font-weight: 500;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: auto;
+    width: 100%;
+    z-index: 1;
+}
+
+.ux-select select
+{
+    border-style: none;
+    padding: 13px 0;
+    font-weight: 400;
+    width: 100%;
+    font-size: 16px;
+    color: rgba(0,0,0,0.87);
+    will-change: transform;
+    background: white url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZ0lEQVQ4jWNgGAUMDAwMPpTqlWJgYEhhYGBgIkEjE1SPFEyAj4GBIYuBgYGDCM0cULV8uCQE8GgWIGQRhtOQAElejWJgYFBD4qtBxTAAIx5DfBgYGF5A2RIMDAxbiLEZHThA8SjAAwDigwgeJ3RSWgAAAABJRU5ErkJggg==") no-repeat 100% 50%;
+}
+
+.ux-select:after
+{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: cornflowerblue;
+    height: 2px;
+}
+
+.ux-select select
+{
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-right: 25px;
+}
+
+.ux-select select:focus
+{
+    outline: 0;
+    border-style: none;
+}
+
+.ux-select-menu
+{
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    transition: opacity 284ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 189ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    position: absolute;
+    max-width: calc(100% - 32px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 250px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 3px;
+    min-width: 100px;
+    transform: scale(0);
+    opacity: 0;
+    transform-origin: 0 0 0;
+    z-index: 999;
+}
+
+
+
+.ux-menu-item
+{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding: 10px 15px;
+    margin: 2px 0;
+    font-size: 15px;
+    font-weight: 500;
+    justify-content: flex-end;
+    min-height: 30px;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ux-menu-item:hover
+{
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.ripple
+{
+    background: rgba(0,0,0,0.4);
+    border-radius: 50%;
+    opacity: 0;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transition: all 0.65s ease-out;
+    transform: scale(0);
+    pointer-events: none;
+}
+.rippled
+{
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+/*************************************************
+*                                                *
+*                 RIPPLE COLORS                  *
+*                                                *
+**************************************************/
+
+.rippled.light .ripple
+{
+    background-color: rgba(255,255,255,0.45);
+}
+
+
+/*************************************************
+*                                                *
+*                     TOOLTIPS                   *
+*                                                *
+**************************************************/
+
+
+
+.ux-tooltip
+{
+    position: fixed;
+    min-width: 50px;
+    max-height: 33px;
+    padding: 8px 10px;
+    background-color: #616161;
+    color: white;
+    border-radius: 2px;
+    font-size: 11px;
+    text-align: center;
+    display: none;
+    transition: transform ease-out 250ms, opacity .2s;
+    will-change: opacity, transform;
+    z-index: 1500;
+    user-select: none;
+    user-input: none;
+    pointer-events: none;
+}
+
+
+
+/*************************************************
+*                                                *
+*                      UPLOADS                   *
+*                                                *
+**************************************************/
+
+
+.ux-upload-box
+{
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    color: #666;
+    font-size: 14px;
+    border: 1px dashed #d9d9d9;
+    border-radius: 4px;
+    background-color: #fafafa;
+    cursor: pointer;
+    transition: all 300ms;
+    user-select: none;
+}
+
+.ux-upload-box:hover
+{
+    border-color: rgb(0, 191, 255);
+    color: rgba(0, 191, 255, 1);
+}
+
+.ux-upload-box:active
+{
+    border-color: deepskyblue;
+    color: deepskyblue;
+    opacity: 0.3;
+}
+
+.ux-upload-box form
+{
+    display: none;
+}
+
+.ux-upload-box .material-icons
+{
+    font-size: 30px;
+}
+.ux-light-button.ux-uploader form
+{
+    display: none;
+}
+
+.ux-raised-button.ux-uploader form
+ {
+     display: none;
+ }
+.ux-text-button.ux-uploader form
+{
+    display: none;
+}
+/*************************************************
+*                                                *
+*                   SNACK BARS                   *
+*                                                *
+**************************************************/
+
+.ux-snackbar
+{
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    right: auto;
+    min-width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+    background-color: rgb(60, 60, 60);
+    transform: translate(-50%, 500%);
+    transition: transform .4s;
+    padding: 5px 25px;
+    color: white;
+    border-radius: 2px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    z-index: 1500;
+}
+
+.ux-snackbar button,
+.ux-snackbar .ux-raised-button,
+.ux-snackbar .ux-flat-button,
+.ux-snackbar .ux-text-button,
+.ux-snackbar .ux-outline-button
+{
+    color: white;
+    margin-left: 15px;
+}
+
+.ux-snackbar button .ripple,
+.ux-snackbar .ux-raised-button .ripple,
+.ux-snackbar .ux-flat-button .ripple,
+.ux-snackbar .ux-text-button .ripple,
+.ux-snackbar .ux-outline-button .ripple
+{
+    background-color: rgba(255,255,255,0.45);
+}
+
+.ux-snackbar.closeable .material-icons
+{
+    color: white;
+}
+
+.ux-snackbar.closeable .ux-icon-button
+{
+    width: 40px;
+    height: 40px;
+}
+
+
+/*************************************************
+*                                                *
+*                   SPLIT PANE                   *
+*                                                *
+**************************************************/
+.split-pane
+{
+    width: 700px;
+    height: 500px;
+    position: relative;
+    display: flex;
+}
+.split-pane .indicator
+{
+    width: 5px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1.0);
+    cursor: e-resize;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 200px;
+    margin: auto;
+    z-index: 999;
+}
+.split-pane .content-left,
+.split-pane .content-right
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow-y: scroll;
+    user-select: none;
+}
+.split-pane .content-left
+{
+    right: unset;
+}
+.split-pane .content-right
+{
+    left: unset;
+}
+.ux-slider
+{
+    width: 90%;
+    position: relative;
+}
+.ux-slider div
+{
+    width: 30px;
+    height: 30px;
+    border-radius: 50% 50% 0 50%;
+    background-color: cornflowerblue;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    transform: scale(0) rotate(45deg);
+    margin: auto;
+    transition: transform 100ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ux-slider span
+{
+    display: block;
+
+    font-size: 12px;
+    color: white;
+    transform: rotateZ(-45deg);
+    user-select: none;
+}
+
+
+.ux-slider input
+{
+    background: rgba(100, 150, 237, 0.692);
+    -webkit-appearance: none;
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    position: absolute;
+    bottom: 0;
+}
+
+.ux-slider input[type="range"]::-webkit-slider-thumb
+{
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: cornflowerblue;
+    position: relative;
+}
+.ux-slider input[type="range"]::-webkit-slider-thumb:after
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: red;
+}
+.ux-slider input[type="range"]:focus
+{
+    outline: none;
+}
+
+/*************************************************
+*                                                *
+*                      DIALOGS                   *
+*                                                *
+**************************************************/
+
+.dialog 
+{
+    box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
+    background-color: white;
+    max-width: 500px;
+    max-height: 165px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 30px 10px;
+    border-radius: 3px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1000;
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    display: none;
+}
+.overlay
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 4;
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.dialog-title
+{
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 1.5rem;
+    font-weight: 700;
+    /*padding: 24px 24px 20px 24px;*/
+}
+.dialog-message
+{
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1rem;
+    font-weight: 400;
+    /*padding: 0 24px 24px 24px;*/
+}
+
+.dialog .dialog-controls
+{
+    display: flex;
+    justify-content: flex-end;
+    /*margin: 8px 4px;*/
+}
+.dialog .dialog-controls button 
+{
+    margin: 0 5px;
+}
+
+.dialog .ux-text-field
+{
+    width: 100%;
+}
+
+/*************************************************
+*                                                *
+*                 CONTEXT MENUS                  *
+*                                                *
+**************************************************/
+
+.context-menu-item i 
+{
+    margin-right: 10px;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.context-menu-item
+{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding: 5px 15px;
+    margin: 2px 0;
+    font-size: 15px;
+    font-weight: 500;
+    justify-content: flex-end;
+}
+
+.context-menu
+{
+    width: 130px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0;
+    background-color: white;
+    position: absolute;
+    border-radius: 2px;
+    opacity: 0;
+    z-index: 1500;
+    transform: scaleY(0);
+    transform-origin: 0 0 0;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    transition: opacity 287ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 191ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+/*************************************************
+*                                                *
+*                   DROP DOWNS                   *
+*                                                *
+**************************************************/
+
+.ux-dropdown-menu
+{
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    transition: opacity 284ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 189ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 3px;
+    min-width: 120px;
+    transform: scale(0);
+    opacity: 1;
+    transform-origin: 0 0 0;
+    z-index: 999;
+    user-select: none;
+}
+
+.ux-dropdown-menu .ux-dropdown-item
+{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding: 10px 15px;
+    margin: 2px 0;
+    font-size: 15px;
+    font-weight: 500;
+    justify-content: flex-end;
+    min-height: 30px;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ux-dropdown-menu .ux-dropdown-item .material-icons
+{
+    color: #6D6D6D;
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+
+.ux-dropdown-menu .ux-dropdown-item:hover
+{
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.overlay.visible
+{
+    opacity: 1.0;
+}
+
+/*************************************************
+*                                                *
+*                     DRAWERS                    *
+*                                                *
+**************************************************/
+
+.ux-drawer-item .material-icons
+{
+    margin-right: 16px;
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 24px;
+}
+
+.ux-drawer-item
+{
+    width: 90%;
+    text-align: center;
+    padding: 10px 5%;
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.87);
+    letter-spacing: .03em;
+    text-decoration: none;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.ux-drawer-item:hover
+{
+    background-color: rgba(0, 0, 0, 0.08);
+}
+.ux-drawer
+{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+    background-color: white;
+    overflow: hidden;
+    min-width: 20vw;
+    z-index: 999;
+    box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2), 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12);
+    transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    transform: translateX(-140%);
+}
+
+.ux-drawer.static
+{
+    position: fixed;
+    transform: unset;
+    box-shadow: none;
+    border: 0px solid rgba(0, 0, 0, 0.2);
+    border-right-width: 1px;
+    z-index: 4;
+}
+
+.ux-drawer.top
+{
+    right: 0;
+    bottom: unset;
+    min-height: 20vw;
+    height: unset;
+    min-width: unset;
+    transform: translate(0, -140%);
+}
+
+.ux-drawer.right
+{
+    transform: translateX(140%);
+    left: unset;
+    right: 0;
+}
+
+.ux-drawer.bottom
+{
+    right: 0;
+    bottom: 0;
+    top: unset;
+    min-height: 20vw;
+    height: unset;
+    min-width: unset;
+    transform: translate(0, 140%);
+}
+
+
+/*************************************************
+*                                                *
+*                EXPANSION PANELS                *
+*                                                *
+**************************************************/
+
+.ux-expansion-pane .ux-expansion-control
+{
+    height: 48px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    cursor: pointer;
+    background-color: white;
+    color: #3c3c3c;
+    border: 0 solid rgba(0, 0, 0, 0.2);
+    border-bottom-width: 1px;
+}
+
+.ux-expansion-pane .ux-expansion-content .rippled
+{
+    width: 90%;
+    text-align: center;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: rgb(55, 55, 55);
+    letter-spacing: .03em;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.ux-expansion-pane .ux-expansion-content div
+{
+    width: 100%;
+}
+.ux-expansion-pane .ux-expansion-content .material-icons
+{
+    color: rgba(0, 0, 0, 0.54);
+    margin-right: 5px;
+}
+.ux-expansion-pane .ux-expansion-content .rippled:hover
+{
+    background-color: rgba(0, 0, 0, 0.08);
+}
+.ux-expansion-group
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.ux-expansion-pane .ux-expansion-control .material-icons
+{
+    color: #6D6D6D;
+    font-size: 30px;
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.ux-expansion-control span
+{
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.54);
+
+}
+
+.ux-expansion-pane
+{
+    user-select: none;
+    width: 80%;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+.ux-expansion-pane.open .ux-expansion-control .material-icons
+{
+    transform: rotateZ(180deg);
+}
+
+.ux-expansion-pane.open .ux-expansion-content
+{
+    display: flex;
+    height: auto;
+}
+
+.ux-expansion-pane .ux-expansion-content
+{
+    overflow: hidden;
+    display: none;
+    transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+    color: #4e4e4e;
+    user-select: none;
+    background-color: white;
+}
+.ux-expansion-pane .ux-expansion-content span
+{
+    padding: 10px 20px;
+}
+
+.ux-drawer-items .ux-expansion-pane
+{
+    width: 100%;
+    box-shadow: none;
+}
+
+
+/*************************************************
+*                                                *
+*                       TABS                     *
+*                                                *
+**************************************************/
+
+.ux-tab-bar
+{
+    background-color: #f5f5f5;
+    position: absolute;
+    width: 70vw;
+    min-height: 48px;
+    display: flex;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.ux-tab-bar.ux-icon-bar
+{
+    background-color: #82c1f5;
+}
+.ux-tab-bar .ux-tab-item.disabled
+{
+    cursor: not-allowed;
+    color: rgba(0, 0, 0, 0.38);
+    opacity: 0.35;
+}
+
+.ux-tab-bar .ux-tab-item
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    color: rgba(0, 0, 0, 0.54);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 5px;
+    cursor: pointer;
+    width: 100%;
+    user-select: none;
+}
+
+
+
+.ux-tab-bar .active-tab
+{
+    color: cornflowerblue;
+}
+
+.ux-tab-bar.ux-icon-bar .ux-tab-item
+{
+    color: white;
+    font-size: 24px;
+}
+
+.ux-tab-bar.ux-icon-bar .ux-tab-item .ripple
+{
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.tab-indicator
+{
+    background-color: #006BF0;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 10ms;
+}
+
+.ux-tab-bar.ux-icon-bar .tab-indicator
+{
+    background-color: rgb(215, 255, 162);
+}
+
+/*************************************************
+*                                                *
+*                     SWITCHES                   *
+*                                                *
+**************************************************/
+
+.ux-switch
+{
+    position: relative;
+    width: 36px;
+    height: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.ux-switch:after,
+.ux-switch:before
+{
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0,0,0,.2);
+    transition: all .2s ease-in-out;
+}
+.ux-switch.checked
+{
+    background-color: #4cd864;
+}
+.ux-switch.checked:after,
+.ux-switch.checked:before
+{
+    transform: translateX(100%);
+}
+
+.ux-switch.checked.disabled,
+.ux-switch.disabled
+{
+    background-color: #D2D2D2;
+    pointer-events:none;
+    opacity: 0.45;
+}
+.ux-switch.checked.disabled:after,
+.ux-switch.disabled:after,
+.ux-switch.checked.disabled:before,
+.ux-switch.disabled:before
+{
+    background-color: #bdbdbd;
+}
+
+
+/*************************************************
+*                                                *
+*                     POPUPS                     *
+*                                                *
+**************************************************/
+
+.ux-popup-box
+{
+    min-width: 100px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    font-size: 14px;
+    position: absolute;
+    display: none;
+    z-index: 10;
+    transition: transform 300ms, opacity 250ms;
+}
+.ux-popup-box .content
+{
+    padding: 20px 30px;
+}
+
+.ux-popup-box .title
+{
+    padding: 10px 15px;
+    border: 0px solid rgba(0, 0, 0, 0.08);
+    border-bottom-width: 1px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.ux-popup-box::after
+{
+    content: "";
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    box-shadow: 3px 3px 7px rgba(0,0,0,.07);
+    position: absolute;
+    z-index: 1;
+}
+.ux-popup-box.top::after
+{
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    right: 0;
+    transform: translate(0%, 50%)rotateZ(45deg);
+
+}
+.ux-popup-box.top
+{
+    transform-origin: 50% 100% 0;
+}
+
+.ux-popup-box.bottom::after
+{
+    top: 0;
+    left: 0;
+    margin: auto;
+    right: 0;
+    box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.06);
+    transform: translate(0%, -50%)rotateZ(45deg);
+}
+
+.ux-popup-box.bottom
+{
+    transform-origin: 50% 0 0;
+}
+
+.ux-popup-box.right::after
+{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    box-shadow: -3px 3px 7px rgba(0,0,0,.07);
+    transform: translate(-50%, 0%)rotateZ(45deg);
+}
+
+.ux-popup-box.right
+{
+    transform-origin: 0 50% 0;
+}
+
+.ux-popup-box.left::after
+{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    box-shadow: 3px -3px 7px rgba(0,0,0,.07);
+    transform: translate(50%, 0%)rotateZ(45deg);
+}
+
+.ux-popup-box.left
+{
+    transform-origin: 100% 50% 0;
+}
+/*************************************************
+*                                                *
+*                  TEXT FIELDS                   *
+*                                                *
+**************************************************/
+
+.ux-text-field
+{
+    position: relative;
+    font-family: "Raleway", sans-serif;
+    display: flex;
+    align-items: center;
+    width: min-content;
+    height: min-content;
+    /*overflow: hidden;*/
+}
+
+.ux-text-field input
+{
+    border-style: none;
+    height: 30px;
+    width: 100%;
+    border-radius: 3px 3px 0 0;
+    padding-left: 10px;
+    font-family: "Raleway", sans-serif;
+    font-size: 13px;
+}
+
+.ux-text-field input::placeholder
+{
+    color: rgba(0, 0, 0, 0.2);
+}
+
+
+
+.ux-text-field input:focus
+{
+    outline: 0;
+}
+
+.ux-text-field::after
+{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 200ms;
+}
+
+.ux-text-field::before
+{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    height: 2px;
+    background-color: transparent;
+    transform: scaleX(0);
+    transition: background-color 200ms, transform 150ms;
+}
+
+.ux-text-field:hover::after
+{
+    background-color: rgba(100, 149, 237, 0.24);
+}
+
+.ux-text-field:focus-within::before,
+.ux-text-field.valid::before
+{
+    transform: scaleX(1);
+    background-color: cornflowerblue;
+}
+
+.ux-text-field .material-icons
+{
+    color: rgb(180, 180, 180);
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: color 300ms;
+}
+.ux-text-field span
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-bottom: 2px;
+    width: 100%;
+}
+.ux-text-field:hover .material-icons
+{
+    color: rgb(150, 150, 150);
+}
+.ux-text-field:focus-within .material-icons,
+.ux-text-field.valid .material-icons
+{
+    color: rgb(130, 130, 130);
+}
+
+.ux-text-field .error,
+.ux-text-field .helper
+{
+    position: absolute;
+    font-size: 14px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    transition: all 200ms;
+}
+
+.ux-text-field .error
+{
+    color: red;
+    font-size: 13px;
+    transform: translateY(100%);
+}
+
+.ux-text-field .helper
+{
+    color: rgba(0, 0, 0, 0.2);
+    user-select: none;
+    pointer-events: none;
+}
+
+.ux-text-field:focus-within .helper,
+.ux-text-field.valid .helper
+{
+    transform: translate(0, -80%);
+    font-size: 12px;
+    color: cornflowerblue;
+}
+
+
+/*************************************************
+*                                                *
+*                     PROGRESS                   *
+*                                                *
+**************************************************/
+
+.ux-circular-progress
+{
+    position: relative;
+}
+.ux-circular-progress .circle-fill
+{
+    /*stroke: #108ee9;*/
+    /*stroke: cornflowerblue;*/
+    stroke: #428AE8;
+    fill: transparent;
+    stroke-width: 2px;
+    stroke-dasharray: 0px, 295px;
+    stroke-opacity: 0;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    transition: stroke-dasharray 5s linear;
+    /*transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s, stroke-width 0.06s ease 0.3s;*/
+}
+
+.ux-circular-progress .circle-path
+{
+    stroke: #f3f3f3;
+    fill: transparent;
+    stroke-width: 2px;
+    stroke-dasharray: 295px, 295px;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s;
+}
+
+
+.ux-circular-progress span
+{
+    font-family: "Raleway", sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    color: #428AE8;
+}
+
+.ux-circular-progress.completed .circle-fill
+{
+    stroke-dasharray: 300px, 295px;
+    stroke: #52c41a;
+    stroke-opacity: 1;
+}
+.ux-circular-progress.completed span .material-icons
+{
+    color: #52c41a;
+    font-size: 35px;
+}
+
+.ux-circular-progress.error .circle-fill
+{
+    stroke-dasharray: 206px, 295px;
+    stroke: #ED6252;
+    stroke-opacity: 1;
+}
+.ux-circular-progress.error span .material-icons
+{
+    color: #ED6252;
+    font-size: 35px;
+}
+
+.ux-loader
+{
+    position: relative;
+}
+.ux-loader svg
+{
+    animation: load-spin 1s linear infinite;
+}
+
+.ux-loader .circle-fill
+{
+    animation: scale-dash-array 5s linear infinite;
+    stroke: #4b4b4b;
+    fill: transparent;
+    stroke-width: 3px;
+    stroke-dasharray: 0px, 295px;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+}
+
+.ux-loader .circle-path
+{
+    stroke: #f3f3f3;
+    fill: transparent;
+    stroke-width: 3px;
+    stroke-dasharray: 295px, 295px;
+    stroke-dashoffset: 0;
+}
+
+.ux-loader span
+{
+    font-family: "Raleway", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    color: rgba(0, 0, 0, 0.67);
+}
+
+.ux-loader.primary span
+{
+    color: #428AE8;
+}
+
+.ux-loader.primary .circle-fill
+{
+    stroke: #428AE8;
+}
+
+.ux-loader.secondary span
+{
+    color: #27aea2;
+}
+
+.ux-loader.secondary .circle-fill
+{
+    stroke: #27aea2;
+}
+
+@keyframes scale-dash-array
+{
+    0% { stroke-dasharray: 0px, 295px; }
+    10% { stroke-dasharray: 60px, 295px; }
+    20% { stroke-dasharray: 120px, 295px; }
+    30% { stroke-dasharray: 180px, 295px; }
+    40% { stroke-dasharray: 240px, 295px; }
+    50% { stroke-dasharray: 300px, 295px; }
+    60% { stroke-dasharray: 240px, 295px; }
+    70% { stroke-dasharray: 180px, 295px; }
+    80% { stroke-dasharray: 120px, 295px; }
+    90% { stroke-dasharray: 60px, 295px; }
+    100% { stroke-dasharray: 0px, 295px; }
+}
+
+@keyframes load-spin
+{
+    0% {  transform: rotate(0deg)  }
+    50% {  transform: rotate(180deg)  }
+    100% {  transform: rotate(360deg)  }
+}
+
+/*************************************************
+*                                                *
+*                     BUTTONS                    *
+*                                                *
+**************************************************/
+
+.ux-raised-button,
+.ux-flat-button,
+.ux-text-button ,
+.ux-outline-button,
+.ux-icon-button
+{
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 2px;
+    user-select: none;
+    min-height: unset;
+    border-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.ux-raised-button .material-icons,
+div.ux-flat-button .material-icons,
+div.ux-text-button  .material-icons,
+div.ux-outline-button .material-icons
+{
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+div.ux-raised-button,
+div.ux-flat-button,
+div.ux-text-button,
+div.ux-outline-button
+{
+    /*padding: 3px 10px;*/
+    padding: 2px 12px;
+    min-width: 88px;
+    min-height: 36px;
+}
+div.ux-raised-button.small,
+div.ux-flat-button.small,
+div.ux-text-button.small,
+div.ux-outline-button.small
+{
+    height: 33px;
+    padding: 0 14px;
+    font-weight: 500;
+    font-size: 12px;
+    min-width: unset;
+    min-height: unset;
+}
+div.ux-flat-button.small
+{
+    height: 31px;
+}
+div.ux-raised-button.small .material-icons,
+div.ux-flat-button.small .material-icons,
+div.ux-text-button.small .material-icons,
+div.ux-outline-button.small .material-icons
+{
+    font-size: 18px;
+}
+
+div.ux-raised-button.large,
+div.ux-flat-button.large,
+div.ux-text-button.large,
+div.ux-outline-button.large
+{
+    height: 54px;
+    padding: 0px 26px;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.2em;
+}
+div.ux-raised-button.large .material-icons,
+div.ux-flat-button.large .material-icons,
+div.ux-text-button.large .material-icons,
+div.ux-outline-button.large .material-icons
+{
+    margin-right: 10px;
+}
+
+
+
+
+/*************************************************
+*                                                *
+*                   ICON BUTTON                  *
+*                                                *
+**************************************************/
+
+.ux-icon-button
+{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: #6D6D6D;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.ux-icon-button:hover
+{
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.ux-icon-button:disabled
+{
+    color: rgba(0, 0, 0, 0.26);
+}
+
+.ux-icon-button:disabled:hover
+{
+    background-color: transparent;
+    cursor: not-allowed;
+}
+
+/*************************************************
+*                                                *
+*                 RAISED BUTTON                  *
+*                                                *
+**************************************************/
+
+.ux-raised-button
+{
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+                box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
+    color: rgba(0, 0, 0, 0.87);
+    background-color: white;
+    height: 36px;
+    padding: 0 16px;
+    cursor: pointer;
+    letter-spacing: .098em;
+}
+.ux-raised-button:hover,
+.ux-raised-button:focus
+{
+    background-color: rgb(230, 230, 230);
+}
+.ux-raised-button:active
+{
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+
+.ux-raised-button.primary
+{
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.ux-raised-button.primary:hover
+{
+    background-color: rgb(44, 111, 228);
+}
+.ux-raised-button.primary .ripple,
+.ux-raised-button.secondary .ripple
+{
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+
+.ux-raised-button.secondary
+{
+    background-color: #27aea2;
+    color: white;
+}
+
+.ux-raised-button.secondary:hover
+{
+    background-color: #249d93;
+}
+
+/*************************************************
+*                                                *
+*                   FLAT BUTTON                  *
+*                                                *
+**************************************************/
+.ux-flat-button
+{
+    border: 1px solid rgba(0, 0, 0, 0.23);
+    border-radius: 5px;
+    height: 36px;
+    padding: 0 16px;
+    cursor: pointer;
+    background-color: white;
+    color: rgba(0, 0, 0, 0.87);
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 10ms;
+    letter-spacing: .098em;
+}
+
+
+.ux-flat-button:hover,
+.ux-flat-button:focus
+{
+    border-color: black;
+}
+
+.ux-flat-button:hover
+{
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+.ux-flat-button.primary 
+{
+    background-color: white;
+    color: #006BF0;
+}
+
+.ux-flat-button.primary:hover
+{
+    opacity: 1;
+    border-color: #006BF0;
+}
+.ux-flat-button.primary:focus
+{
+    background-color: white;
+    border-color: #006BF0;
+}
+
+.ux-flat-button.primary.rippled .ripple
+{
+    background-color: rgba(0, 113, 255, 0.27);
+}
+
+.ux-flat-button.secondary
+{
+    color: #419488;
+}
+
+.ux-flat-button.secondary:hover
+{
+    border-color: #419488;
+}
+
+.ux-flat-button:disabled:hover 
+{
+    background-color: unset;
+}
+
+/*************************************************
+*                                                *
+*                   TEXT BUTTON                  *
+*                                                *
+**************************************************/
+
+.ux-text-button 
+{
+    border-style: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.87);
+    height: 36px;
+    padding: 0 16px;
+    cursor: pointer;
+    transition: background-color 300ms;
+    letter-spacing: .098em;
+}
+.ux-text-button.primary 
+{
+    color: #006BF0;
+}
+.ux-text-button:focus 
+{
+    background-color: transparent;
+}
+
+.ux-text-button:hover
+{
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+.ux-text-button.secondary
+{
+    /*color: #27aea2;*/
+    color: #419488;
+}
+
+
+/*************************************************
+*                                                *
+*                OUTLINE BUTTON                  *
+*                                                *
+**************************************************/
+.ux-outline-button
+{
+    height: 36px;
+    padding: 0 16px 5px 16px;
+    border: 1px solid rgba(0, 0, 0, 0.70);
+    background-color: white;
+    color: rgba(0, 0, 0, 0.70);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+                border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+                color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+                box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+                opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 10ms;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
+    letter-spacing: .098em;
+}
+.ux-outline-button:after
+{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.70);
+    margin-bottom: 5px;
+}
+
+.ux-outline-button:active
+{
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.ux-outline-button:hover
+{
+    border-color: rgba(0, 0, 0, 0.50);
+    color: rgba(0, 0, 0, 0.50);
+}
+.ux-outline-button:hover:after
+{
+    background-color: rgba(0, 0, 0, 0.50);
+}
+
+.ux-outline-button.primary:hover
+{
+    border-color: rgb(95, 163, 241);
+    color: rgb(95, 163, 241);
+}
+.ux-outline-button.primary:hover:after
+{
+    background-color: rgb(95, 163, 241);
+}
+.ux-outline-button.primary
+{
+    border-color: #006BF0;
+    color: #006BF0;
+}
+.ux-outline-button.primary:after
+{
+    background-color: #006BF0;
+}
+
+.ux-outline-button.secondary
+{
+    color: #419488;
+    border-color: #419488;
+}
+
+.ux-outline-button.secondary:after
+{
+    background-color: #419488;
+}
+.ux-outline-button.secondary:hover
+{
+    opacity: 0.7;
+}
+
+.ux-outline-button.secondary:hover:after
+{
+    opacity: 0.7;
+}
+
+/*************************************************
+*                                                *
+*                  LIGHT BUTTON                  *
+*                                                *
+**************************************************/
+
+.ux-light-button
+{
+    height: 32px;
+    border: 1px solid #d9d9d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    font-size: 14px;
+    color: rgba(0,0,0,.65);
+    border-radius: 4px;
+    user-select: none;
+    cursor: pointer;
+    transition: all .3s cubic-bezier(.645,.045,.355,1), opacity 130ms;
+    letter-spacing: .098em;
+}
+.ux-light-button .material-icons
+{
+    margin-right: 7px;
+    font-size: 19px;
+}
+.ux-light-button:hover
+{
+    border-color: deepskyblue;
+    color: deepskyblue;
+}
+
+.ux-light-button:active
+{
+    outline: 0;
+    opacity: 0.1;
+}
+
+.ux-light-button.primary
+{
+    background-color: deepskyblue;
+    border-color: #005dff;
+    color: white;
+}
+
+.ux-light-button.primary:hover
+{
+    background-color: rgba(3, 213, 255, 0.9);
+    border-color: rgba(4, 142, 255, 0.9);
+}
+
+
+.ux-light-button.secondary
+{
+    color: #419488;
+    border-color: #27aea2;
+    background-color: white;
+    font-weight: 500;
+}
+
+.ux-light-button.secondary:hover
+{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*************************************************
+*                                                *
+*                DISABLED BUTTON                 *
+*                                                *
+**************************************************/
+
+.ux-raised-button:disabled,
+.ux-raised-button.primary:disabled
+{
+    color: rgba(0, 0, 0, 0.26);
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+.ux-raised-button:disabled:hover,
+.ux-raised-button.primary:disabled:hover
+{
+    background-color: rgba(0, 0, 0, 0.12);
+}
+.ux-raised-button:disabled,
+.ux-outline-button:disabled,
+.ux-light-button:disabled
+{
+    box-shadow: none;
+    cursor: not-allowed;
+}
+.ux-flat-button:disabled,
+.ux-outline-button:disabled,
+.ux-flat-button.disabled,
+.ux-outline-button.disabled,
+.ux-flat-button:disabled:hover,
+.ux-outline-button:disabled:hover,
+.ux-flat-button.disabled:hover,
+.ux-outline-button.disabled:hover,
+.ux-flat-button:disabled:active,
+.ux-outline-button:disabled:active,
+.ux-flat-button.disabled:active,
+.ux-outline-button.disabled:active,
+div.ux-flat-button:disabled:hover,
+div.ux-outline-button:disabled:hover,
+div.ux-flat-button.disabled:hover,
+div.ux-outline-button.disabled:hover,
+div.ux-flat-button:disabled:active,
+div.ux-outline-button:disabled:active,
+div.ux-flat-button.disabled:active,
+div.ux-outline-button.disabled:active
+{
+    box-shadow: none;
+    cursor: not-allowed;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.26);
+    border-color: rgba(0, 0, 0, 0.26);
+    opacity: 1;
+}
+
+div.ux-raised-button.disabled:hover,
+div.ux-raised-button.primary.disabled:hover,
+div.ux-raised-button.secondary.disabled:hover
+{
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+.ux-text-button:disabled
+{
+    color: rgba(0, 0, 0, 0.26);
+    cursor: not-allowed;
+}
+
+.ux-text-button:disabled:hover,
+.ux-text-button.disabled:hover
+{
+    background-color: transparent;
+    opacity: 1;
+}
+
+
+div.ux-raised-button.disabled,
+div.ux-text-button.disabled
+{
+    color: rgba(0, 0, 0, 0.26);
+    background-color: rgba(0, 0, 0, 0.12);
+    box-shadow: none;
+    cursor: not-allowed;
+    user-input: none;
+    user-select: none;
+}
+
+.ux-outline-button:disabled
+{
+    color: rgba(0, 0, 0, 0.26);
+    border: 1px solid rgba(0, 0, 0, 0.23);
+}
+.ux-outline-button:disabled:after
+{
+    background-color: rgba(0, 0, 0, 0.23);
+}
+
+.ux-light-button:disabled
+{
+    opacity: 0.4;
+}
+.ux-light-button:disabled:hover,
+.ux-light-button:disabled:active
+{
+    border: 1px solid #d9d9d9;
+    color: rgba(0,0,0,.65);
+}
+
+.ux-light-button.primary:disabled:hover,
+.ux-light-button.primary:disabled:active
+{
+    color: white;
+    background-color: deepskyblue;
+    border-color: #005dff;
+}
+
+
+/************************************************************************
+*                                                                       *
+*                          MOBILE ADJUSTMENTS                           *
+*                                                                       *
+************************************************************************/
+
+/*************************************************
+*                                                *
+*                 MOBILE PORTRAIT                *
+*                                                *
+**************************************************/
+
+/*@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait),*/
+/*(-webkit-min-device-pixel-ratio: 1.3),*/
+/*(min--moz-device-pixel-ratio: 1.3),*/
+/*(-o-min-device-pixel-ratio: 2.6/2),*/
+/*(min-device-pixel-ratio: 1.3),*/
+/*(min-resolution: 1.3dppx)*/
+/*{*/
+    /*.ux-drawer*/
+    /*{*/
+        /*width: 90vw;*/
+        /*overflow: scroll;*/
+    /*}*/
+/*}*/
+
+
+
+
+
+

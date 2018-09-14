@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Demo Template</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css">
+        <link rel="stylesheet" href="../src/foundation.css">
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        <script src="../src/foundation.js"></script>
+        <link rel="stylesheet" href="home.css">
+    </head>
+    <body>
+        <div class="app-bar">
+            <a href="home.html" class="title-header">UX Kit</a>
+        </div>
+
+        <!-- DRAWER -->
+        <div class="ux-drawer static">
+            <div class="ux-drawer-items">
+                <a href="home.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">home</i>
+                    Home
+                </a>
+                <a href="getting-started.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">star</i>
+                    Getting Started
+                </a>
+
+                <div class="rippled ux-drawer-item">
+                    <i class="material-icons">info</i>
+                    About
+                </div>
+
+                <div class="ux-expansion-pane open">
+                    <div class="ux-expansion-control">
+                        Components
+                        <i class="material-icons">keyboard_arrow_down</i>
+                    </div>
+                    <div class="ux-expansion-content">
+                        <div>
+                            <a class="rippled" href="buttons-demo.html">
+                                Buttons
+                            </a>
+                            <a class="rippled" href="forms-demo.html">
+                                Forms
+                            </a>
+                            <a class="rippled" href="popover-demo.html">
+                                Popovers
+                            </a>
+                            <a class="rippled" href="dialog-demo.html">
+                                Dialogs
+                            </a>
+                            <a class="rippled" href="alerts-demo.html">
+                                Alerts
+                            </a>
+                            <a class="rippled" href="drawers-demo.html">
+                                Drawers
+                            </a>
+                            <a class="rippled" href="uploads-demo.html">
+                                Uploads
+                            </a>
+                            <a class="rippled" href="progress-demo.html">
+                                Progress
+                            </a>
+                            <a class="rippled" href="tabs-demo.html">
+                                Tabs
+                            </a>
+                            <a class="rippled" href="expansion-panel-demo.html">
+                                Expansion Panes
+                            </a>
+                            <a class="rippled" href="snackbar-demo.html">
+                                Snack Bars
+                            </a>
+                            <a class="rippled" href="tooltips-demo.html">
+                                Tooltips
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="stack-container">
+                <div class="header">Alerts</div>
+
+
+                <!--SUCCESS ALERT-->
+                <div class="sub-header">Success Alert</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="simple-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="ux-alert success">
+                        <i class="material-icons close-button">close</i>
+                        NOTE: At this time, we are currently out of the office.
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="simple-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+    <div class="ux-alert success">
+        <i class="material-icons close-button">close</i>
+        NOTE: At this time, we are currently out of the office.
+    </div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+                <!--ERROR ALERT-->
+                <div class="sub-header">Error Alert</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="error-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="ux-alert error">
+                        <i class="material-icons close-button">close</i>
+                        ERROR: There was a problem find the requested file
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="error-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+    <div class="ux-alert error">
+        <i class="material-icons close-button">close</i>
+        ERROR: There was a problem find the requested file
+    </div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+                <!--INFO ALERT-->
+                <div class="sub-header">Info Alert</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="info-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="ux-alert info">
+                        <i class="material-icons close-button">close</i>
+                        We synced your contacts!
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="info-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+    <div class="ux-alert info">
+        <i class="material-icons close-button">close</i>
+        We synced your contacts!
+    </div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+                <!--SUCCESS TITLE ALERT-->
+                <div class="sub-header">Alert with Title</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="title-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="ux-alert success large">
+                        <i class="material-icons close-button">close</i>
+                        <div class="title">NOTE:</div>
+                        At this time, we are currently out of the office.
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="title-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+    <div class="ux-alert success large">
+        <i class="material-icons close-button">close</i>
+        <div class="title">NOTE:</div>
+        At this time, we are currently out of the office.
+    </div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </body>
+</html>

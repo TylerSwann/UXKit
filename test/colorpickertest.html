@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Color Picker Test</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../foundation.js"></script>
+        <link rel="stylesheet" href="../foundation.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="layout">
+                <div class="ux-color-swatch rippled"></div>
+            </div>
+            <div class="layout">
+                <div class="ux-color-swatch rippled"></div>
+                <div class="ux-color-swatch rippled"></div>
+            </div>
+            <div class="layout">
+                <div class="ux-color-swatch rippled"></div>
+                <div class="ux-color-swatch rippled"></div>
+                <div class="ux-color-swatch rippled"></div>
+            </div>
+            <div class="layout">
+                <div class="ux-color-swatch rippled"></div>
+                <div class="ux-color-swatch rippled"></div>
+                <div class="ux-color-swatch rippled"></div>
+                <div class="ux-color-swatch rippled"></div>
+            </div>
+        </div>
+        <!--<div class="ux-color-picker">-->
+            <!--<div class="arrow"><div class="preview-pane"></div></div>-->
+            <!--<div class="header-pane">-->
+                <!--<div class="preview-pane"></div>-->
+            <!--</div>-->
+            <!--<div class="controls-pane">-->
+                <!--<div class="sl-container">-->
+                    <!--<div class="knob"></div>-->
+                    <!--<div class="white-transparent"></div>-->
+                    <!--<div class="transparent-black"></div>-->
+                <!--</div>-->
+                <!--<div class="slider opacity-slider"><div class="knob"></div></div>-->
+                <!--<div class="slider hue-slider"><div class="knob"></div></div>-->
+            <!--</div>-->
+            <!--<div class="bottom-pane">-->
+                <!--<div class="color-result-container">-->
+                    <!--<div class="ux-text-field">-->
+                        <!--<i class="material-icons">color_lens</i>-->
+                        <!--<input type="text">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="ux-tab-bar">-->
+                    <!--<div class="ux-tab-item rippled rgba-tab active-tab">-->
+                        <!--<div>RGBA</div>-->
+                    <!--</div>-->
+                    <!--<div class="ux-tab-item hsl-tab rippled">-->
+                        <!--<div>HSL</div>-->
+                    <!--</div>-->
+                    <!--<div class="ux-tab-item hex-tab rippled">-->
+                        <!--<div>HEX</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </body>
+</html>
+
+<template id="ux-color-picker-template">
+    <div class="ux-color-picker">
+        <div class="arrow"><div class="preview-pane"></div></div>
+        <div class="header-pane">
+            <div class="preview-pane"></div>
+        </div>
+        <div class="controls-pane">
+            <div class="sl-container">
+                <div class="knob"></div>
+                <div class="white-transparent"></div>
+                <div class="transparent-black"></div>
+            </div>
+            <div class="slider opacity-slider"><div class="knob"></div></div>
+            <div class="slider hue-slider"><div class="knob"></div></div>
+        </div>
+        <div class="bottom-pane">
+            <div class="rgba-container">
+                <span>rgba(</span>
+                <input type="text">,<input type="text">,<input type="text">,<input type="text">
+                <span>)</span>
+            </div>
+            <div class="hsl-container">
+                <span>hsl(</span>
+                <input type="text">,<input type="text">,<input type="text">,<input type="text">
+                <span>)</span>
+            </div>
+            <div class="hex-container">
+                #<input type="text">
+            </div>
+            <div class="ux-tab-bar">
+                <div class="ux-tab-item rippled rgba-tab active-tab">
+                    <div>RGBA</div>
+                </div>
+                <div class="ux-tab-item hsl-tab rippled">
+                    <div>HSL</div>
+                </div>
+                <div class="ux-tab-item hex-tab rippled">
+                    <div>HEX</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+
+    setTimeout(() => {
+        addColorPickerListeners();
+    }, 100);
+
+    function addColorPickerListeners()
+    {
+        let pickers = document.getElementsByClassName("ux-color-picker");
+        let swatches = document.getElementsByClassName("ux-color-swatch");
+        document.addEventListener("click", (e) => {
+            if (e.srcElement.classList.contains("ux-color-swatch"))
+                return;
+            let pickers = document.getElementsByClassName("ux-color-picker");
+            for (let i = 0; i < pickers.length; i++)
+            {
+                const picker = pickers[i];
+                if (e.path.includes(picker))
+                    continue;
+                picker.style.transform = "scaleY(0)";
+                picker.style.opacity = "0";
+                picker.swatch.style.pointerEvents = "unset";
+                setTimeout(() => {
+                    picker.parentElement.removeChild(picker);
+                }, 350);
+            }
+        });
+        for (let i = 0; i < pickers.length; i++)
+            addColorPickerEvents(pickers[i]);
+        for (let i = 0; i < swatches.length; i++)
+        {
+            let swatch = swatches[i];
+            swatch.onclick = () => {
+                swatch.style.pointerEvents = "none";
+                const colorPicker = createColorPicker();
+                colorPicker.style.opacity = "1";
+                let pickerWidth = colorPicker.getBoundingClientRect().width;
+                let arrowHeight = colorPicker.querySelector(".arrow").getBoundingClientRect().height;
+                colorPicker.style.opacity = "0";
+                colorPicker.style.transform = "scaleY(0)";
+                setTimeout(() => {
+                    let pos = swatch.getBoundingClientRect();
+                    let x = (pos.left + (pos.width / 2.0)) - (pickerWidth / 2.0);
+                    let y = pos.top + pos.height + (arrowHeight / 2.0);
+                    x += window.scrollX;
+                    y += window.scrollY;
+                    colorPicker.style.top = y + "px";
+                    colorPicker.style.left = x + "px";
+                    colorPicker.style.opacity = "1";
+                    colorPicker.style.transform = "scaleY(1)";
+                    colorPicker.swatch = swatch;
+                    colorPicker.onColorChange = (color) => {
+                        swatch.style.backgroundColor = color;
+                    };
+                }, 50);
+            };
+        }
+
+    }
+
+    function addColorPickerEvents(colorPicker)
+    {
+        String.prototype.replaceAll = function(search, replacement) {
+            let target = this;
+            return target.split(search).join(replacement);
+        };
+        let colorSliderListeners = () => {
+            const sliders = colorPicker.querySelectorAll(".slider");
+            let mouseIsDown = false;
+            let targetSlider = null;
+            let moveKnob = (e) => {
+                if (targetSlider == null)
+                    return;
+                let knob = targetSlider.querySelector(".knob");
+                let size = knob.offsetHeight;
+                let pos = targetSlider.getBoundingClientRect();
+                let y = e.clientY - pos.top - (size / 2);
+                let maxY = targetSlider.offsetHeight - (knob.getBoundingClientRect().height);
+                if (y > maxY)
+                    knob.style.top = maxY + "px";
+                else if (y < 0.0)
+                    knob.style.top = "0px";
+                else
+                    knob.style.top = y + "px";
+                knob.onPosChange();
+            };
+            document.addEventListener("mouseup", () => {
+                mouseIsDown = false;
+                targetSlider = null;
+            });
+            document.addEventListener("mousemove", (e) => {
+                if (!mouseIsDown || targetSlider == null)
+                    return;
+                moveKnob(e);
+            });
+            for (let i = 0; i < sliders.length; i++)
+            {
+                let slider = sliders[i];
+                slider.querySelector(".knob").onPosChange = function() { };
+                slider.addEventListener("mousedown", (e) => {
+                    targetSlider = slider;
+                    mouseIsDown = true;
+                    moveKnob(e);
+                });
+            }
+        };
+        let slColorListeners = () => {
+            const slContainers = colorPicker.querySelectorAll(".sl-container");
+            let mouseIsDown = false;
+            let targetKnob = null;
+            let targetContainer = null;
+            let moveKnob = (e) => {
+                if (targetKnob == null || targetContainer == null)
+                    return;
+                let size = targetKnob.offsetWidth;
+                let pos = targetContainer.getBoundingClientRect();
+                let x = e.clientX - pos.left - (size / 2);
+                let y = e.clientY - pos.top - (size / 2);
+                let knobPos = targetKnob.getBoundingClientRect();
+                let maxY = targetContainer.offsetHeight - (knobPos.height);
+                let maxX = targetContainer.offsetWidth - (knobPos.width);
+                if (y < maxY && y >= 0.0)
+                    targetKnob.style.top = y + "px";
+                else if (y <= 0.0)
+                    targetKnob.style.top = "0px";
+                else if (y > maxY)
+                    targetKnob.style.top = maxY + "px";
+                if (x >= 0.0 && x < maxX)
+                    targetKnob.style.left = x + "px";
+                else if (x <= 0.0)
+                    targetKnob.style.left = "0px";
+                else if (x > maxX)
+                    targetKnob.style.left = maxX + "px";
+                targetKnob.onPosChange();
+            };
+            document.addEventListener("mouseup", () => {
+                targetKnob = null;
+                targetContainer = null;
+                mouseIsDown = false;
+            });
+            document.addEventListener("mousemove", (e) => moveKnob(e));
+            for (let i = 0; i < slContainers.length; i++)
+            {
+                let slContainer = slContainers[i];
+                let knob = slContainer.querySelector(".knob");
+                knob.onPosChange = function() {  };
+                slContainer.addEventListener("mousedown", (e) => {
+                    mouseIsDown = true;
+                    targetContainer = slContainer;
+                    targetKnob = knob;
+                });
+            }
+        };
+        let colorChangeListeners = () => {
+            const ColorModel = {
+                RGBA: "RGBA",
+                HSL: "HSL",
+                HEX: "HEX"
+            };
+            let model = ColorModel.RGBA;
+            let slContainer = colorPicker.querySelector(".sl-container");
+            let slKnob = slContainer.querySelector(".knob");
+            let hueSlider = colorPicker.querySelector(".hue-slider");
+            let opacitySlider = colorPicker.querySelector(".opacity-slider");
+            let hueKnob = hueSlider.querySelector(".knob");
+            let opacityKnob = opacitySlider.querySelector(".knob");
+            let previewPanes = colorPicker.querySelectorAll(".preview-pane");
+            const colorResultInput = colorPicker.querySelector(".color-result-container input[type='text']");
+            let hue = 203.0;
+            let saturation = 72.6;
+            let lightness = 67.1;
+            let opacity = 1.0;
+            colorPicker.onColorChange = (color) => {};
+            slKnob.style.left = slContainer.offsetWidth - (slKnob.getBoundingClientRect().width) + "px";
+            hueKnob.style.top = "134.5px";
+            let applyColor = () => {
+                let color = `hsla(${hue}, ${saturation}%, ${lightness}%, ${opacity})`;
+                for (let j = 0; j < previewPanes.length; j++) {
+                    previewPanes[j].style.backgroundColor = color;
+                }
+                switch (model)
+                {
+                    case ColorModel.RGBA:
+                        colorResultInput.value = previewPanes[0].style.backgroundColor;
+                        colorPicker.onColorChange(previewPanes[0].style.backgroundColor);
+                        break;
+                    case ColorModel.HEX:
+                        let rgbaValues = previewPanes[0].style.backgroundColor;
+                        rgbaValues = rgbaValues.replaceAll(/[a-zA-Z)(\s]+/, "");
+                        let rgba = rgbaValues.split(",");
+                        let rgbaString = `rgba(${parseFloat(rgba[0])}, ${parseFloat(rgba[1])}, ${parseFloat(rgba[2])}, ${rgba.length === 4 ? rgba[3] : "1.0"})`;
+                        colorResultInput.value = rgbaToHex(rgbaString);
+                        colorPicker.onColorChange(rgbaToHex(rgbaString));
+                        break;
+                    case ColorModel.HSL:
+                        let hsl = `hsl(${Math.round(hue)}, ${Math.round(saturation)}, ${Math.round(lightness)}, ${opacity})`;
+                        colorResultInput.value = hsl;
+                        colorPicker.onColorChange(hsl);
+                        break;
+                }
+                slContainer.style.backgroundColor = `hsla(${hue}, 100%, 50%, 1.0)`;
+            };
+            hueKnob.onPosChange = () => {
+                let maxY = hueSlider.offsetHeight - (hueKnob.getBoundingClientRect().height);
+                let currentY = parseInt(hueKnob.style.top);
+                hue = (360.0 / maxY) * currentY;
+                applyColor();
+            };
+            opacityKnob.onPosChange = () => {
+                let maxY = opacitySlider.offsetHeight - (opacityKnob.getBoundingClientRect().height);
+                let currentY = parseInt(opacityKnob.style.top);
+                opacity = 1.0 - ((1.0 / maxY) * currentY);
+                applyColor();
+            };
+            slKnob.onPosChange = () => {
+                let knobPos = slKnob.getBoundingClientRect();
+                let maxY = slContainer.offsetHeight - (knobPos.height);
+                let maxX = slContainer.offsetWidth - (knobPos.width);
+                let currentY = parseInt(slKnob.style.top);
+                let currentX = parseInt(slKnob.style.left);
+                lightness = 50.0 - ((currentY / maxY) * 50.0);
+                lightness += 50.0 - ((currentX / maxX) * 50.0);
+                saturation = (100.0 / maxX) * currentX;
+                applyColor();
+            };
+            let changeColorMode = (colorModel) => {
+                model = colorModel;
+                colorPicker.querySelector(".rgba-container").style.display = colorModel === ColorModel.RGBA ? "flex" : "none";
+                colorPicker.querySelector(".hsl-container").style.display = colorModel === ColorModel.HSL ? "flex" : "none";
+                colorPicker.querySelector(".hex-container").style.display = colorModel === ColorModel.HEX ? "flex" : "none";
+                applyColor();
+            };
+            colorPicker.querySelector(".rgba-tab").onclick = () => changeColorMode(ColorModel.RGBA);
+            colorPicker.querySelector(".hsl-tab").onclick = () => changeColorMode(ColorModel.HSL);
+            colorPicker.querySelector(".hex-tab").onclick = () => changeColorMode(ColorModel.HEX);
+            applyColor();
+        };
+        slColorListeners();
+        colorSliderListeners();
+        colorChangeListeners();
+    }
+
+    function rgbaToHex (rgba)
+    {
+        const trim = (str) => str.replace(/^\s+|\s+$/gm,'');
+        let parts = rgba.substring(rgba.indexOf("(")).split(","),
+            r = parseInt(trim(parts[0].substring(1)), 10),
+            g = parseInt(trim(parts[1]), 10),
+            b = parseInt(trim(parts[2]), 10),
+            a = parseFloat(trim(parts[3].substring(0, parts[3].length - 1))).toFixed(2);
+
+        return ('#' + r.toString(16) + g.toString(16) + b.toString(16) + (a * 255).toString(16).substring(0,2));
+    }
+
+    function createColorPicker()
+    {
+        const picker =
+            `<div class="arrow"><div class="preview-pane"></div></div>` +
+            `<div class="header-pane">` +
+            `<div class="preview-pane"></div>` +
+            `</div>` +
+            `<div class="controls-pane">` +
+            `<div class="sl-container">` +
+            `<div class="knob"></div>` +
+            `<div class="white-transparent"></div>` +
+            `<div class="transparent-black"></div>` +
+            `</div>` +
+            `<div class="slider opacity-slider"><div class="knob"></div></div>` +
+            `<div class="slider hue-slider"><div class="knob"></div></div>` +
+            `</div>` +
+            `<div class="bottom-pane">` +
+            `<div class="color-result-container">` +
+            `<div class="ux-text-field">` +
+            `<i class="material-icons">color_lens</i>` +
+            `<input type="text">` +
+            `</div>` +
+            `</div>` +
+            `<div class="ux-tab-bar">` +
+            `<div class="ux-tab-item rippled rgba-tab active-tab">` +
+            `<div>RGBA</div>` +
+            `</div>` +
+            `<div class="ux-tab-item hsl-tab rippled">` +
+            `<div>HSL</div>` +
+            `</div>` +
+            `<div class="ux-tab-item hex-tab rippled">` +
+            `<div>HEX</div>` +
+            `</div>` +
+            `</div>` +
+            `</div>`
+        ;
+        let colorPicker = document.createElement("div");
+        colorPicker.className = "ux-color-picker";
+        colorPicker.innerHTML = picker.trim();
+        document.documentElement.appendChild(colorPicker);
+        addTabBarEvents(colorPicker.querySelector(".ux-tab-bar"));
+        addColorPickerEvents(colorPicker);
+        return colorPicker;
+    }
+
+</script>
+
+<style>
+
+    .container
+    {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        min-height: 200vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .layout
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
+        height: 200px;
+    }
+
+    /*************************************************
+    *                                                *
+    *                  Color Picker                  *
+    *                                                *
+    **************************************************/
+
+    .ux-color-swatch
+    {
+        background-color: rgb(0, 157, 255);
+        width: 32px;
+        height: 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .ux-color-picker
+    {
+        position: absolute;
+        width: 340px;
+        height: 410px;
+        box-shadow: 0 4px 5px -2px rgba(0,0,0,.2), 0 7px 10px 1px rgba(0,0,0,.14), 0 2px 16px 1px rgba(0,0,0,.12);
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        border-radius: 2px;
+        opacity: 0;
+        transform-origin: top;
+        transition: transform 150ms, opacity 350ms;
+    }
+
+    .ux-color-picker .color-result-container
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(-5%);
+    }
+
+    .ux-color-picker .color-result-container .ux-text-field
+    {
+        width: 55%;
+        margin-bottom: 10px;
+    }
+    .ux-color-picker .color-result-container .ux-text-field input
+    {
+        text-align: center;
+    }
+    .ux-color-picker.top
+    {
+        flex-direction: column-reverse;
+    }
+
+    .ux-color-picker.top .bottom-pane
+    {
+        flex-direction: column-reverse;
+    }
+    .ux-color-picker.top .arrow
+    {
+        top: unset;
+        bottom: 0;
+        transform: rotateZ(45deg) translate(34%,34%);
+    }
+
+    .ux-color-picker .header-pane
+    {
+        height: 20%;
+        z-index: 10;
+        background-image: url("checkerboard-pattern.jpg") ;
+        background-size: 100%;
+        position: relative;
+    }
+    .ux-color-picker .preview-pane
+    {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: rgb(0, 157, 255);
+        border-top-right-radius: 2px;
+        border-top-left-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .ux-color-picker .arrow
+    {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transform: rotateZ(45deg) translate(-34%,-34%);
+        overflow: hidden;
+        border-radius: 2px;
+        box-shadow: 0 4px 5px -2px rgba(0,0,0,.2), 0 7px 10px 1px rgba(0,0,0,.14), 0 2px 16px 1px rgba(0,0,0,.12);
+    }
+    .ux-color-picker .arrow::before
+    {
+        content: "";
+        position: absolute;
+        background-image: url(checkerboard-pattern.jpg);
+        background-size: 340px;
+        top: -10px;
+        bottom: -10px;
+        left: -10px;
+        right: -10px;
+        margin: auto;
+        transform: rotateZ(45deg) translateY(9px);
+
+    }
+    .ux-color-picker .controls-pane
+    {
+        /*height: 55%;*/
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        /*padding-bottom: 0px;*/
+    }
+
+    .ux-color-picker .controls-pane .sl-container
+    {
+        width: 250px;
+        height: 250px;
+        background-color: rgb(0, 157, 255);
+        position: relative;
+    }
+
+
+    .ux-color-picker .controls-pane .slider
+    {
+        width: 25px;
+        height: 250px;
+        position: relative;
+    }
+
+    .ux-color-picker .controls-pane .slider .knob
+    {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border: 3px white solid;
+        height: 5px;
+        box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+    }
+
+    .ux-color-picker .controls-pane .sl-container .knob
+    {
+        width: 6px;
+        height: 6px;
+        position: absolute;
+        border: 2px white solid;
+        border-radius: 50%;
+        box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+        z-index: 20;
+    }
+
+    .ux-color-picker .sl-container .transparent-black,
+    .ux-color-picker .sl-container .white-transparent
+    {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .ux-color-picker .sl-container .white-transparent
+    {
+        background: linear-gradient(to right, #fff 0%, rgba(255,255,255,0) 100%);
+    }
+
+    .ux-color-picker .sl-container .transparent-black
+    {
+        background: linear-gradient(to bottom, transparent 0%, #000 100%);
+    }
+
+    .ux-color-picker .controls-pane .hue-slider
+    {
+        background: linear-gradient(to bottom, red 0%, #ff0 17%, lime 33%, cyan 50%, blue 66%, #f0f 83%, red 100%);
+    }
+
+    .ux-color-picker .controls-pane .opacity-slider
+    {
+        background-image: url("checkerboard-pattern.jpg") ;
+        background-size: 250px;
+
+    }
+    .ux-color-picker .controls-pane .opacity-slider::before
+    {
+        content: "";
+        background: linear-gradient(to bottom, black 0%, transparent 100%);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .ux-color-picker .bottom-pane
+    {
+        /*position: absolute;*/
+        /*bottom: 0;*/
+        /*left: 0;*/
+        /*right: 0;*/
+        height: 60px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .ux-color-picker .bottom-pane .ux-tab-bar
+    {
+        position: unset;
+        width: 100%;
+        min-height: unset;
+        background-color: white;
+        box-shadow: none;
+    }
+    .ux-color-picker .rgba-container,
+    .ux-color-picker .hsl-container,
+    .ux-color-picker .hex-container
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        color: rgb(100, 100, 100);
+        user-select: none;
+    }
+    .ux-color-picker .rgba-container input,
+    .ux-color-picker .hsl-container input,
+    .ux-color-picker .hex-container input
+    {
+        width: 30px;
+        height: 20px;
+        border-style: none;
+        background-color: transparent;
+        text-align: center;
+        font-family: "Roboto", sans-serif;
+        color: rgb(100, 100, 100);
+        font-size: 16px;
+        user-select: none;
+    }
+    .ux-color-picker .hex-container input
+    {
+        width: 75px;
+    }
+    .ux-color-picker .hsl-container,
+    .ux-color-picker .hex-container
+    {
+        display: none;
+    }
+</style>
+

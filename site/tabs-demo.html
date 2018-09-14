@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tabs</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css">
+        <link rel="stylesheet" href="../src/foundation.css">
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        <script src="../src/foundation.js"></script>
+        <link rel="stylesheet" href="home.css">
+    </head>
+    <body>
+        <div class="app-bar">
+            <a href="home.html" class="title-header">UX Kit</a>
+        </div>
+
+        <!-- DRAWER -->
+        <div class="ux-drawer static">
+            <div class="ux-drawer-items">
+                <a href="home.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">home</i>
+                    Home
+                </a>
+                <a href="getting-started.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">star</i>
+                    Getting Started
+                </a>
+
+                <div class="rippled ux-drawer-item">
+                    <i class="material-icons">info</i>
+                    About
+                </div>
+
+                <div class="ux-expansion-pane open">
+                    <div class="ux-expansion-control">
+                        Components
+                        <i class="material-icons">keyboard_arrow_down</i>
+                    </div>
+                    <div class="ux-expansion-content">
+                        <div>
+                            <a class="rippled" href="buttons-demo.html">
+                                Buttons
+                            </a>
+                            <a class="rippled" href="forms-demo.html">
+                                Forms
+                            </a>
+                            <a class="rippled" href="popover-demo.html">
+                                Popovers
+                            </a>
+                            <a class="rippled" href="dialog-demo.html">
+                                Dialogs
+                            </a>
+                            <a class="rippled" href="alerts-demo.html">
+                                Alerts
+                            </a>
+                            <a class="rippled" href="drawers-demo.html">
+                                Drawers
+                            </a>
+                            <a class="rippled" href="uploads-demo.html">
+                                Uploads
+                            </a>
+                            <a class="rippled" href="progress-demo.html">
+                                Progress
+                            </a>
+                            <a class="rippled" href="tabs-demo.html">
+                                Tabs
+                            </a>
+                            <a class="rippled" href="expansion-panel-demo.html">
+                                Expansion Panes
+                            </a>
+                            <a class="rippled" href="snackbar-demo.html">
+                                Snack Bars
+                            </a>
+                            <a class="rippled" href="tooltips-demo.html">
+                                Tooltips
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="stack-container">
+                <div class="header">Tabs</div>
+
+                <!--TAB TYPE-->
+                <div class="sub-header">Standard Tabs</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="standard-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="ux-tab-bar">
+                        <div class="ux-tab-item rippled active-tab">
+                            <div>Tab 1</div>
+                        </div>
+                        <div class="ux-tab-item rippled">
+                            <div>Tab 2</div>
+                        </div>
+                        <div class="ux-tab-item rippled">
+                            <div>Tab 3</div>
+                        </div>
+                        <div class="ux-tab-item rippled">
+                            <div>Tab 4</div>
+                        </div>
+                        <div class="ux-tab-item rippled">
+                            <div>Tab 5</div>
+                        </div>
+                        <div class="ux-tab-item rippled">
+                            <div>Tab 6</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="standard-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<div class="ux-tab-bar">
+    <div class="ux-tab-item rippled active-tab">
+        <div>Tab 1</div>
+    </div>
+    <div class="ux-tab-item rippled">
+        <div>Tab 2</div>
+    </div>
+    <div class="ux-tab-item rippled">
+        <div>Tab 3</div>
+    </div>
+    <div class="ux-tab-item rippled">
+        <div>Tab 4</div>
+    </div>
+    <div class="ux-tab-item rippled">
+        <div>Tab 5</div>
+    </div>
+    <div class="ux-tab-item rippled">
+        <div>Tab 6</div>
+    </div>
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+                <!--TAB TYPE-->
+                <div class="sub-header">Tabs with Icon and Text</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="icon-text-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="ux-tab-bar">
+                        <div class="ux-tab-item rippled active-tab">
+                            <i class="material-icons tab-icon">poll</i>
+                            <div>Poll</div>
+                        </div>
+                        <div class="ux-tab-item rippled">
+                            <i class="material-icons tab-icon">people</i>
+                            <div>Friends</div>
+                        </div>
+                        <div class="ux-tab-item rippled">
+                            <i class="material-icons tab-icon">public</i>
+                            <div>Notifications</div>
+                        </div>
+                        <div class="ux-tab-item rippled">
+                            <i class="material-icons tab-icon">sms</i>
+                            <div>Messages</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="icon-text-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<div class="ux-tab-bar">
+    <div class="ux-tab-item rippled active-tab">
+        <i class="material-icons tab-icon">poll</i>
+        <div>Poll</div>
+    </div>
+    <div class="ux-tab-item rippled">
+        <i class="material-icons tab-icon">people</i>
+        <div>Friends</div>
+    </div>
+    <div class="ux-tab-item rippled">
+        <i class="material-icons tab-icon">public</i>
+        <div>Notifications</div>
+    </div>
+    <div class="ux-tab-item rippled">
+        <i class="material-icons tab-icon">sms</i>
+        <div>Messages</div>
+    </div>
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+                <!--TAB TYPE-->
+                <div class="sub-header">Disabled Tabs</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="disabled-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="ux-tab-bar">
+                        <div class="ux-tab-item rippled active-tab">
+                            <div>Tab 1</div>
+                        </div>
+                        <div class="ux-tab-item rippled">
+                            <div>Tab 2</div>
+                        </div>
+                        <div class="ux-tab-item rippled disabled">
+                            <div>Tab 3</div>
+                        </div>
+                        <div class="ux-tab-item rippled">
+                            <div>Tab 4</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="disabled-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<div class="ux-tab-bar">
+    <div class="ux-tab-item rippled active-tab">
+        <div>Tab 1</div>
+    </div>
+    <div class="ux-tab-item rippled">
+        <div>Tab 2</div>
+    </div>
+    <div class="ux-tab-item rippled disabled">
+        <div>Tab 3</div>
+    </div>
+    <div class="ux-tab-item rippled">
+        <div>Tab 4</div>
+    </div>
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+                <!--TAB TYPE-->
+                <div class="sub-header">Icon Tabs</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="icon-source">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="ux-tab-bar ux-icon-bar">
+                        <div class="ux-tab-item rippled active-tab">
+                            <i class="material-icons tab-icon">poll</i>
+                        </div>
+                        <div class="ux-tab-item rippled">
+                            <i class="material-icons tab-icon">people</i>
+                        </div>
+                        <div class="ux-tab-item rippled">
+                            <i class="material-icons tab-icon">public</i>
+                        </div>
+                        <div class="ux-tab-item rippled">
+                            <i class="material-icons tab-icon">sms</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="icon-source">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<div class="ux-tab-bar ux-icon-bar">
+    <div class="ux-tab-item rippled active-tab">
+        <i class="material-icons tab-icon">poll</i>
+    </div>
+    <div class="ux-tab-item rippled">
+        <i class="material-icons tab-icon">people</i>
+    </div>
+    <div class="ux-tab-item rippled">
+        <i class="material-icons tab-icon">public</i>
+    </div>
+    <div class="ux-tab-item rippled">
+        <i class="material-icons tab-icon">sms</i>
+    </div>
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </body>
+</html>
+
+<style>
+    .ux-tab-bar
+    {
+        width: 54vw;
+    }
+    .controls-group
+    {
+        min-height: 20px;
+    }
+    .stack-container
+    {
+        width: 80%;
+    }
+</style>

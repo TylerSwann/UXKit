@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Progress</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css">
+        <link rel="stylesheet" href="../src/foundation.css">
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        <script src="../src/foundation.js"></script>
+        <link rel="stylesheet" href="home.css">
+    </head>
+    <body>
+        <div class="app-bar">
+            <a href="home.html" class="title-header">UX Kit</a>
+        </div>
+
+        <!-- DRAWER -->
+        <div class="ux-drawer static">
+            <div class="ux-drawer-items">
+                <a href="home.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">home</i>
+                    Home
+                </a>
+                <a href="getting-started.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">star</i>
+                    Getting Started
+                </a>
+
+                <div class="rippled ux-drawer-item">
+                    <i class="material-icons">info</i>
+                    About
+                </div>
+
+                <div class="ux-expansion-pane open">
+                    <div class="ux-expansion-control">
+                        Components
+                        <i class="material-icons">keyboard_arrow_down</i>
+                    </div>
+                    <div class="ux-expansion-content">
+                        <div>
+                            <a class="rippled" href="buttons-demo.html">
+                                Buttons
+                            </a>
+                            <a class="rippled" href="forms-demo.html">
+                                Forms
+                            </a>
+                            <a class="rippled" href="popover-demo.html">
+                                Popovers
+                            </a>
+                            <a class="rippled" href="dialog-demo.html">
+                                Dialogs
+                            </a>
+                            <a class="rippled" href="alerts-demo.html">
+                                Alerts
+                            </a>
+                            <a class="rippled" href="drawers-demo.html">
+                                Drawers
+                            </a>
+                            <a class="rippled" href="uploads-demo.html">
+                                Uploads
+                            </a>
+                            <a class="rippled" href="progress-demo.html">
+                                Progress
+                            </a>
+                            <a class="rippled" href="tabs-demo.html">
+                                Tabs
+                            </a>
+                            <a class="rippled" href="expansion-panel-demo.html">
+                                Expansion Panes
+                            </a>
+                            <a class="rippled" href="snackbar-demo.html">
+                                Snack Bars
+                            </a>
+                            <a class="rippled" href="tooltips-demo.html">
+                                Tooltips
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="stack-container">
+                <div class="header">Circular Progress</div>
+                <div class="sub-header">Loaders</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="circle-loader">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="ux-loader">
+                        <svg viewBox="0 0 100 100" width="120px" height="120px">
+                            <path class="circle-path" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                            <path class="circle-fill" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                        </svg>
+                        <span>Default...</span>
+                    </div>
+                    <div class="ux-loader primary">
+                        <svg viewBox="0 0 100 100" width="120px" height="120px">
+                            <path class="circle-path" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                            <path class="circle-fill" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                        </svg>
+                        <span>Primary...</span>
+                    </div>
+                    <div class="ux-loader secondary">
+                        <svg viewBox="0 0 100 100" width="120px" height="120px">
+                            <path class="circle-path" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                            <path class="circle-fill" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                        </svg>
+                        <span>Secondary...</span>
+                    </div>
+                    <div class="ux-loader primary">
+                        <svg viewBox="0 0 100 100" width="120px" height="120px">
+                            <path class="circle-path" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                            <path class="circle-fill" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                        </svg>
+                        <span>Loading...</span>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="circle-loader">
+                    <div class="ux-expansion-content">
+                            <span>
+                                <pre class="prettyprint lang-html code-preview">
+                                    <xmp>
+<div class="ux-loader">
+    <svg viewBox="0 0 100 100" width="120px" height="120px">
+        <path class="circle-path" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+        <path class="circle-fill" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+    </svg>
+    <span>Default...</span>
+</div>
+<div class="ux-loader primary">
+    <svg viewBox="0 0 100 100" width="120px" height="120px">
+        <path class="circle-path" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+        <path class="circle-fill" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+    </svg>
+    <span>Primary...</span>
+</div>
+                                    </xmp>
+                                </pre>
+                            </span>
+                    </div>
+                </div>
+
+
+
+                <div class="sub-header">Circular Progress</div>
+                <div class="source-controls">
+                    <div class="ux-icon-button rippled ux-tip" tooltip="View Source" delay="1300" id="circle-progress">
+                        <i class="material-icons">code</i>
+                    </div>
+                </div>
+                <div class="controls-group">
+                    <div class="vbox-flex">
+                        <div class="ux-circular-progress" id="circle-bar">
+                            <svg viewBox="0 0 100 100" width="120px" height="120px">
+                                <path class="circle-path" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                                <path class="circle-fill" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                            </svg>
+                            <span>0%</span>
+                        </div>
+                        <div class="ux-stepper">
+                            <div class="add" id="add-circle"><span>+</span></div>
+                            <div class="minus" id="minus-circle"><span>-</span></div>
+                        </div>
+                    </div>
+                    <div class="vbox-flex">
+                        <div class="ux-circular-progress completed">
+                            <svg viewBox="0 0 100 100" width="120px" height="120px">
+                                <path class="circle-path" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                                <path class="circle-fill" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                            </svg>
+                            <span>
+                                <i class="material-icons">check</i>
+                            </span>
+                        </div>
+                        <div class="prompt">Success!</div>
+                    </div>
+                    <div class="vbox-flex">
+                        <div class="ux-circular-progress error">
+                            <svg viewBox="0 0 100 100" width="120px" height="120px">
+                                <path class="circle-path" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                                <path class="circle-fill" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+                            </svg>
+                            <span>
+                                <i class="material-icons">close</i>
+                            </span>
+                        </div>
+                        <div class="prompt">Error Loading</div>
+                    </div>
+                </div>
+                <div class="ux-expansion-pane code-preview-expansion" trigger="circle-progress">
+                    <div class="ux-expansion-content">
+                        <span>
+                            <pre class="prettyprint lang-html code-preview">
+                                <xmp>
+<div class="ux-circular-progress" id="circle-bar">
+    <svg viewBox="0 0 100 100" width="120px" height="120px">
+        <path class="circle-path" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+        <path class="circle-fill" d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94"></path>
+    </svg>
+    <span>0%</span>
+</div>
+                                </xmp>
+                            </pre>
+                        </span>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+    setTimeout(() => {
+        addDemoListeners();
+    }, 100);
+
+    function addDemoListeners()
+    {
+        let addCircle = document.getElementById("add-circle");
+        let minusCircle = document.getElementById("minus-circle");
+        let demoBar = document.getElementById("circle-bar");
+        addCircle.addEventListener("click", () => {
+            if (!addCircle.hasAttribute("progress"))
+                addCircle.setAttribute("progress", "0");
+            let currentValue = parseInt(addCircle.getAttribute("progress"));
+            currentValue += 20;
+            addCircle.setAttribute("progress", `${currentValue}`);
+            demoBar.setProgress(currentValue);
+        });
+        minusCircle.addEventListener("click", () => {
+            if (!addCircle.hasAttribute("progress"))
+                addCircle.setAttribute("progress", "0");
+            let currentValue = parseInt(addCircle.getAttribute("progress"));
+            currentValue -= 20;
+            addCircle.setAttribute("progress", `${currentValue}`);
+            demoBar.setProgress(currentValue);
+        });
+    }
+</script>
+
+<style>
+    .vbox-flex
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .ux-stepper
+    {
+        margin-top: 10px;
+    }
+
+    .prompt
+    {
+        height: 32px;
+        font-family: "Raleway", sans-serif;
+        font-weight: 200;
+        margin-top: 10px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    .ux-stepper
+    {
+        width: 90px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .ux-stepper .add,
+    .ux-stepper .minus
+    {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        width: 50%;
+        height: 100%;
+        color: rgb(100, 100, 100);
+        cursor: pointer;
+        transition: all .3s cubic-bezier(.645,.045,.355,1), opacity 130ms;
+    }
+    .ux-stepper .minus
+    {
+        border: 1px solid #d9d9d9;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    .ux-stepper .add
+    {
+        border: 1px solid #d9d9d9;
+        border-right-color: transparent;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    .ux-stepper .add span,
+    .ux-stepper .minus span
+    {
+        font-family: "Raleway", sans-serif;
+        font-weight: 100;
+        font-size: 35px;
+        height: 50%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        user-select: none;
+
+    }
+    .ux-stepper .minus span
+    {
+        line-height: 0.85;
+    }
+    .ux-stepper .add span
+    {
+        line-height: 1;
+    }
+    .ux-stepper:hover .minus
+    {
+        border-left-color: transparent;
+    }
+    .ux-stepper .add:hover,
+    .ux-stepper .minus:hover
+    {
+        color: #6ca2ff;
+        border-color: #6ca2ff;
+    }
+
+    .ux-stepper .add:active,
+    .ux-stepper .minus:active
+    {
+        opacity: 0.1;
+    }
+</style>

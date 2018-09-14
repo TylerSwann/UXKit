@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Getting Started</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css">
+        <link rel="stylesheet" href="../src/foundation.css">
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        <script src="../src/foundation.js"></script>
+        <link rel="stylesheet" href="home.css">
+    </head>
+    <body>
+        <div class="app-bar">
+            <a href="home.html" class="title-header">UX Kit</a>
+        </div>
+
+        <!-- DRAWER -->
+        <div class="ux-drawer static">
+            <div class="ux-drawer-items">
+                <a href="home.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">home</i>
+                    Home
+                </a>
+                <a href="getting-started.html" class="rippled ux-drawer-item">
+                    <i class="material-icons">star</i>
+                    Getting Started
+                </a>
+
+                <div class="rippled ux-drawer-item">
+                    <i class="material-icons">info</i>
+                    About
+                </div>
+
+                <div class="ux-expansion-pane open">
+                    <div class="ux-expansion-control">
+                        Components
+                        <i class="material-icons">keyboard_arrow_down</i>
+                    </div>
+                    <div class="ux-expansion-content">
+                        <div>
+                            <a class="rippled" href="buttons-demo.html">
+                                Buttons
+                            </a>
+                            <a class="rippled" href="forms-demo.html">
+                                Forms
+                            </a>
+                            <a class="rippled" href="popover-demo.html">
+                                Popovers
+                            </a>
+                            <a class="rippled" href="dialog-demo.html">
+                                Dialogs
+                            </a>
+                            <a class="rippled" href="alerts-demo.html">
+                                Alerts
+                            </a>
+                            <a class="rippled" href="drawers-demo.html">
+                                Drawers
+                            </a>
+                            <a class="rippled" href="uploads-demo.html">
+                                Uploads
+                            </a>
+                            <a class="rippled" href="progress-demo.html">
+                                Progress
+                            </a>
+                            <a class="rippled" href="tabs-demo.html">
+                                Tabs
+                            </a>
+                            <a class="rippled" href="expansion-panel-demo.html">
+                                Expansion Panes
+                            </a>
+                            <a class="rippled" href="snackbar-demo.html">
+                                Snack Bars
+                            </a>
+                            <a class="rippled" href="tooltips-demo.html">
+                                Tooltips
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="stack-container">
+                <div class="left-vbox">
+                    <div class="header">Source Files</div>
+                    <div class="display">
+                        You can download the source files here.
+                        The whole project consists of one stylesheet and a single javascript source file.
+                    </div>
+                    <div class="ux-raised-button rippled primary" id="download-btn">
+                        <div class="material-icons">cloud_download</div>
+                        Download
+                    </div>
+                </div>
+                <div class="left-vbox" id="cdn-box">
+                    <div class="source-controls">
+                        <div class="header">CDN</div>
+                        <div class="ux-icon-button rippled ux-tip"
+                             tooltip="Copy Source"
+                             delay="1300"
+                             onclick="copyClick()"
+                             id="copy-btn">
+                            <i class="material-icons">file_copy</i>
+                        </div>
+                    </div>
+                    <div class="display">
+                        Source files are also distributed via CDN.
+                        You can import them into you project by copying and pasting the lines below into your HTML header.
+                    </div>
+                    <span>
+                        <pre class="prettyprint lang-html code-preview">
+                            <xmp>
+            <script src="foundation.js"></script>
+            <link rel="stylesheet" href="foundation.css">
+
+                            </xmp>
+                        </pre>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="ux-snackbar" id="copy-snackbar">Copied</div>
+    </body>
+</html>
+
+<script>
+
+    setTimeout(() => {
+        document.getElementById("copy-btn").addEventListener('click', () => {
+            let text = "" +
+                "<script src=\"foundation.js\"><\/script>\n" +
+                "<link rel=\"stylesheet\" href=\"foundation.css\">";
+            copyToClipboard(text);
+        });
+    }, 100);
+    /**
+     *
+     * @param text {string}
+     */
+    function copyToClipboard(text)
+    {
+        let textarea = document.createElement("textarea");
+        document.body.appendChild(textarea);
+        textarea.value = text;
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+    }
+</script>
+
+<style>
+    pre.prettyprint
+    {
+        height: 80px;
+        font-size: 18px;
+    }
+    xmp
+    {
+        margin: unset;
+    }
+    #cdn-box
+    {
+        margin-top: 50px;
+    }
+    .source-controls
+    {
+        background-color: transparent;
+        padding: unset;
+        margin: unset;
+        width: 100%;
+        border-style: none;
+        justify-content: space-between;
+    }
+    .left-vbox
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+        width: 85%;
+        background-color: rgba(0, 0, 0, 0.02);
+        border-radius: 5px;
+        height: 15%;
+        padding: 20px 30px;
+    }
+    .header
+    {
+        margin: unset;
+        width: unset;
+    }
+    .display
+    {
+        font-size: 15px;
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
+    .container
+    {
+        align-items: center;
+        justify-content: center;
+        height: 80vh;
+    }
+</style>
+
+<script>
+    function copyClick()
+    {
+        showSnackbar(document.getElementById("copy-snackbar"), 2000);
+    }
+</script>
