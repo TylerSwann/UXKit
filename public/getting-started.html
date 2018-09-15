@@ -4,9 +4,9 @@
         <meta charset="UTF-8">
         <title>Getting Started</title>
         <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css">
-        <link rel="stylesheet" href="../src/uxkit.css">
         <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-        <script src="../src/uxkit.js"></script>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/TylerSwann/UXKit/81849322/src/uxkit.css">
+        <script src="https://cdn.rawgit.com/TylerSwann/UXKit/81849322/src/uxkit.js"></script>
         <link rel="stylesheet" href="home.css">
     </head>
     <body>
@@ -111,8 +111,8 @@
                     <span>
                         <pre class="prettyprint lang-html code-preview">
                             <xmp>
-            <script src="foundation.js"></script>
-            <link rel="stylesheet" href="foundation.css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/TylerSwann/UXKit/81849322/src/uxkit.css">
+<script src="https://cdn.rawgit.com/TylerSwann/UXKit/81849322/src/uxkit.js"></script>
 
                             </xmp>
                         </pre>
@@ -128,9 +128,9 @@
 
     setTimeout(() => {
         document.getElementById("copy-btn").addEventListener('click', () => {
-            let text = "" +
-                "<script src=\"uxkit.js\"><\/script>\n" +
-                "<link rel=\"stylesheet\" href=\"foundation.css\">";
+            const script = `<script src=\"https://cdn.rawgit.com/TylerSwann/UXKit/81849322/src/uxkit.js\"><\/script>`;
+            const stylesheet = `<link rel="stylesheet" href="https://cdn.rawgit.com/TylerSwann/UXKit/81849322/src/uxkit.css">`;
+            const text = `${script}\n${stylesheet}`;
             copyToClipboard(text);
         });
     }, 100);
@@ -153,7 +153,7 @@
     pre.prettyprint
     {
         height: 80px;
-        font-size: 18px;
+        font-size: 14px;
     }
     xmp
     {
