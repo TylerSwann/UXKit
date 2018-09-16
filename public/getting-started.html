@@ -99,7 +99,7 @@
                         <div class="ux-icon-button rippled ux-tip"
                              tooltip="Copy Source"
                              delay="1300"
-                             onclick="copyClick()"
+                             onclick="showSnackbar(document.getElementById('copy-snackbar'), 2000)"
                              id="copy-btn">
                             <i class="material-icons">file_copy</i>
                         </div>
@@ -122,10 +122,14 @@
         </div>
         <div class="ux-snackbar" id="copy-snackbar">Copied</div>
     </body>
+    <a href="../lib/0.1/dist/uxkit.zip" download="uxkit" id="download-action"></a>
 </html>
 
 <script>
-
+    // function copyClick()
+    // {
+    //     showSnackbar(document.getElementById("copy-snackbar"), 2000);
+    // }
     setTimeout(() => {
         document.getElementById("copy-btn").addEventListener('click', () => {
             const script = `<script src=\"https://cdn.rawgit.com/TylerSwann/UXKit/81849322/src/uxkit.js\"><\/script>`;
@@ -133,6 +137,9 @@
             const text = `${script}\n${stylesheet}`;
             copyToClipboard(text);
         });
+        document.getElementById("download-btn").onclick = () => {
+            document.getElementById("download-action").click();
+        };
     }, 100);
     /**
      *
@@ -150,6 +157,11 @@
 </script>
 
 <style>
+
+    #download-action
+    {
+        display: none;
+    }
     pre.prettyprint
     {
         height: 80px;
@@ -202,10 +214,3 @@
         height: 80vh;
     }
 </style>
-
-<script>
-    function copyClick()
-    {
-        showSnackbar(document.getElementById("copy-snackbar"), 2000);
-    }
-</script>

@@ -381,6 +381,7 @@ button:focus
     position: relative;
     overflow: hidden;
     text-decoration: none;
+    -webkit-tap-highlight-color: none;
 }
 
 /*************************************************
