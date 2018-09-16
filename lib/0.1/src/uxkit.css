@@ -865,7 +865,6 @@ button:focus
 }
 .ux-drawer
 {
-    padding-top: 20px;
     display: flex;
     flex-direction: column;
     position: fixed;

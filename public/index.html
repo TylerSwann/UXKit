@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UX Kit</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/TylerSwann/UXKit/f7f255a8/lib/0.1/src/uxkit.css">
+  <script src="https://cdn.rawgit.com/TylerSwann/UXKit/f7f255a8/lib/0.1/src/uxkit.js"></script>
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+<div class="app-bar">
+  <button class="ux-icon-button rippled" id="menu-button">
+    <i class="material-icons">dehaze</i>
+  </button>
+</div>
+
+<div class="home-content">
+  <div class="home-content-container">
+    <i class="material-icons" id="logo">gesture</i>
+    <div class="home-title">UX Kit</div>
+    <div class="home-desc">
+      A Simple Front-End UI Framework that makes Building <br>
+      Fluid Websites a Quick and Simple Process.
+    </div>
+    <a href="getting-started.html" class="ux-flat-button rippled primary">Get Started</a>
+  </div>
+  <div class="home-bottom">
+    <div class="box">
+      <div class="feature-header">
+        <div class="hbox">
+          <i class="fas fa-bolt"></i>
+          <span>Fast</span>
+        </div>
+      </div>
+      <div class="vbox">
+        <div class="feature-desc">
+          UX Kit speeds up the web development process.
+          Using modular components, beautiful websites can be built
+          quickly and easily.
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="feature-header">
+        <div class="hbox">
+          <i class="fas fa-wrench"></i>
+          <span>Intuitive</span>
+        </div>
+      </div>
+      <div class="vbox">
+        <div class="feature-desc">
+          UX Kit is easy to use. Components,
+          such as tooltips, dropdowns, and dialogs can easily be
+          integrated into your website using only CSS. Most components
+          can be created with JavaScript as well, giving you more control
+          over the components.
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="feature-header">
+        <div class="hbox">
+          <i class="fas fa-users"></i>
+          <span>Responsive</span>
+        </div>
+      </div>
+      <div class="vbox">
+        <div class="feature-desc">
+          Components in UX Kit were built with the end-user
+          in mind. Whether they are visiting your site on their smart phone,
+          or on a desktop, users will feel in control with your websites responsive
+          user interface.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DRAWER -->
+<div class="ux-drawer" trigger="menu-button">
+  <div class="ux-drawer-items">
+    <a href="index.html" class="rippled ux-drawer-item">
+      <i class="material-icons">home</i>
+      Home
+    </a>
+    <a href="getting-started.html" class="rippled ux-drawer-item">
+      <i class="material-icons">star</i>
+      Getting Started
+    </a>
+
+    <div class="ux-expansion-pane open">
+      <div class="ux-expansion-control">
+        Components
+        <i class="material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="ux-expansion-content">
+        <div>
+          <a class="rippled" href="buttons-demo.html">
+            Buttons
+          </a>
+          <a class="rippled" href="forms-demo.html">
+            Forms
+          </a>
+          <a class="rippled" href="popover-demo.html">
+            Popovers
+          </a>
+          <a class="rippled" href="dialog-demo.html">
+            Dialogs
+          </a>
+          <a class="rippled" href="alerts-demo.html">
+            Alerts
+          </a>
+          <a class="rippled" href="drawers-demo.html">
+            Drawers
+          </a>
+          <a class="rippled" href="uploads-demo.html">
+            Uploads
+          </a>
+          <a class="rippled" href="progress-demo.html">
+            Progress
+          </a>
+          <a class="rippled" href="tabs-demo.html">
+            Tabs
+          </a>
+          <a class="rippled" href="expansion-panel-demo.html">
+            Expansion Panes
+          </a>
+          <a class="rippled" href="snackbar-demo.html">
+            Snack Bars
+          </a>
+          <a class="rippled" href="tooltips-demo.html">
+            Tooltips
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+<style>
+
+  #logo
+  {
+    color: cornflowerblue;
+    font-size: 170px;
+  }
+
+  .home-bottom
+  {
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .box
+  {
+    width: 30%;
+    min-height: 90%;
+    background-color: white;
+    border-radius: 5px;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    user-select: none;
+    /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
+    /*box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);*/
+    box-shadow: 0px 5px 8px rgba(0,0,0,0.15), 0px 9px 15px rgba(0,0,0,0.22);
+  }
+  .feature-header
+  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: cornflowerblue;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    /*border: 0 solid rgba(0, 0, 0, 0.1);*/
+    border-bottom-width: 1px;
+  }
+  .feature-header .hbox
+  {
+    justify-content: space-around;
+    width: 25%;
+    padding: 10px 0;
+  }
+  .feature-header span
+  {
+    font-family: "Raleway", sans-serif;
+    color: white;
+    font-size: 25px;
+    font-weight: 300;
+    margin-left:10px;
+    margin-right: 20px;
+  }
+  .feature-header .fas
+  {
+    font-size: 20px;
+    color: white;
+  }
+
+  .feature-desc
+  {
+    font-family: "Raleway", sans-serif;
+    color: rgba(52, 52, 52, 1);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  .box .vbox
+  {
+    height: 25vh;
+    width: 90%;
+    text-align: center;
+  }
+
+  .home-content
+  {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    min-height: 115vh;
+    cursor: default;
+  }
+  .home-content-container
+  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    min-height: 45vh;
+    margin: 60px 0px;
+  }
+  .home-desc,
+  .home-title
+  {
+    font-family: "Raleway", sans-serif;
+    text-align: center;
+  }
+  .home-desc
+  {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(100, 100, 100);
+    line-height: 1.6;
+  }
+  .home-title
+  {
+    font-size: 35px;
+    font-weight: 100;
+    color: rgba(0, 0, 0, 0.8);
+  }
+  .app-bar
+  {
+    left: 0;
+    right: 0;
+  }
+</style>

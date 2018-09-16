@@ -196,12 +196,12 @@ pre.prettyprint
 }
 
 
-.ux-drawer.static .ux-expansion-pane .ux-expansion-content div
-{
-    width: 100%;
-    height: 70vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
+/*.ux-drawer.static .ux-expansion-pane .ux-expansion-content div*/
+/*{*/
+    /*width: 100%;*/
+    /*height: 70vh;*/
+    /*overflow-y: scroll;*/
+    /*overflow-x: hidden;*/
+/*}*/
 
 
